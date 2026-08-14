@@ -34,7 +34,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
+      className="relative isolate overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-24"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -45,11 +45,13 @@ export default function Hero() {
         <div className="absolute right-[-120px] top-[20%] h-[350px] w-[350px] rounded-full bg-[var(--accent)]/5 blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16">
 
-          {/* LEFT */}
-          <div className="animate-fade-up">
+          {/* =====================================================
+              LEFT CONTENT
+              ===================================================== */}
+          <div className="min-w-0 animate-fade-up">
 
             {/* Status */}
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--panel)]/80 px-3.5 py-1.5 backdrop-blur">
@@ -64,8 +66,17 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Name */}
-            <h1 className="whitespace-nowrap text-[clamp(2.15rem,8.5vw,6.4rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[var(--text)]">
+            {/* NAME */}
+            <h1
+              className="
+                whitespace-nowrap
+                text-[clamp(2rem,5.3vw,5.5rem)]
+                font-semibold
+                leading-[0.95]
+                tracking-[-0.055em]
+                text-[var(--text)]
+              "
+            >
               {SITE.name}
             </h1>
 
@@ -79,18 +90,22 @@ export default function Hero() {
             </div>
 
             {/* Description */}
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg lg:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)] sm:text-xl">
               I&apos;m a Computer Science Engineering student focused on
               cybersecurity, security monitoring, and practical security
               engineering.
             </p>
 
             {/* Education */}
-            <p className="mt-4 max-w-2xl font-mono-brand text-[11px] leading-relaxed text-[var(--text-faint)] sm:text-xs lg:text-sm">
+            <p className="mt-4 max-w-2xl font-mono-brand text-xs leading-relaxed text-[var(--text-faint)] sm:text-sm">
               B.E. Computer Science & Engineering (Cybersecurity)
+
               <span className="mx-2 text-[var(--border-strong)]">·</span>
+
               Sri Siddhartha Institute of Technology
+
               <span className="mx-2 text-[var(--border-strong)]">·</span>
+
               2029
             </p>
 
@@ -116,7 +131,7 @@ export default function Hero() {
                 Get in touch
               </a>
 
-              {/* Socials */}
+              {/* Social icons */}
               <div className="ml-2 flex items-center gap-4 border-l border-[var(--border)] pl-5">
 
                 <a
@@ -151,40 +166,91 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT — PHOTO */}
+          {/* =====================================================
+              RIGHT PHOTO
+              ===================================================== */}
           <div
-            className="relative flex justify-center lg:justify-end animate-fade-up"
+            className="
+              relative
+              flex
+              min-h-[340px]
+              items-center
+              justify-center
+              lg:min-h-[430px]
+              lg:justify-end
+              animate-fade-up
+            "
             style={{ animationDelay: '180ms' }}
           >
 
-            {/* Decorative glow */}
-            <div className="absolute h-64 w-64 animate-photo-glow rounded-full bg-[var(--accent-cyan)]/10 blur-3xl sm:h-96 sm:w-96" />
+            {/* Glow */}
+            <div
+              className="
+                absolute
+                h-72
+                w-72
+                animate-photo-glow
+                rounded-full
+                bg-[var(--accent-cyan)]/10
+                blur-3xl
+                sm:h-96
+                sm:w-96
+              "
+            />
 
             {/* Rotating ring */}
-            <div className="absolute h-[275px] w-[275px] animate-spin-slow rounded-full border border-dashed border-[var(--accent-cyan)]/20 sm:h-[390px] sm:w-[390px]" />
+            <div
+              className="
+                absolute
+                h-[285px]
+                w-[285px]
+                animate-spin-slow
+                rounded-full
+                border
+                border-dashed
+                border-[var(--accent-cyan)]/20
+                sm:h-[390px]
+                sm:w-[390px]
+              "
+            />
 
             {/* Photo */}
             <div className="relative animate-photo-float">
 
+              {/* Outer border */}
               <div className="absolute -inset-3 rounded-full border border-[var(--border-strong)] opacity-70" />
 
-              <div className="relative h-60 w-60 overflow-hidden rounded-full border-2 border-[var(--border-strong)] bg-[var(--panel)] shadow-2xl shadow-black/20 sm:h-80 sm:w-80">
-
+              {/* Image */}
+              <div
+                className="
+                  relative
+                  h-64
+                  w-64
+                  overflow-hidden
+                  rounded-full
+                  border-2
+                  border-[var(--border-strong)]
+                  bg-[var(--panel)]
+                  shadow-2xl
+                  shadow-black/20
+                  sm:h-80
+                  sm:w-80
+                "
+              >
                 <Image
                   src="/profile.jpg"
                   alt="Bhoomika B C"
                   fill
                   priority
                   className="object-cover"
-                  sizes="(max-width: 640px) 240px, 320px"
+                  sizes="(max-width: 640px) 256px, 320px"
                 />
 
-                {/* Subtle overlay */}
                 <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-black/15 via-transparent to-transparent" />
-
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
