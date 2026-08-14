@@ -34,7 +34,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden pt-24 pb-16 sm:pt-40 sm:pb-28"
+      className="relative isolate overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -45,59 +45,17 @@ export default function Hero() {
         <div className="absolute right-[-120px] top-[20%] h-[350px] w-[350px] rounded-full bg-[var(--accent)]/5 blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
 
-          {/* =====================================================
-              PHOTO
-              Mobile: appears first
-              Desktop: appears on the right
-             ===================================================== */}
-          <div
-            className="order-1 relative flex justify-center lg:order-2 lg:justify-end animate-fade-up"
-            style={{ animationDelay: '180ms' }}
-          >
-            {/* Decorative glow */}
-            <div className="absolute h-56 w-56 animate-photo-glow rounded-full bg-[var(--accent-cyan)]/10 blur-3xl sm:h-96 sm:w-96" />
-
-            {/* Rotating ring */}
-            <div className="absolute h-[235px] w-[235px] animate-spin-slow rounded-full border border-dashed border-[var(--accent-cyan)]/20 sm:h-[390px] sm:w-[390px]" />
-
-            {/* Photo */}
-            <div className="relative animate-photo-float">
-
-              {/* Outer border */}
-              <div className="absolute -inset-3 rounded-full border border-[var(--border-strong)] opacity-70" />
-
-              {/* Image container */}
-              <div className="relative h-[210px] w-[210px] overflow-hidden rounded-full border-2 border-[var(--border-strong)] bg-[var(--panel)] shadow-2xl shadow-black/20 sm:h-80 sm:w-80">
-
-                <Image
-                  src="/profile.jpg"
-                  alt="Bhoomika B C"
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="(max-width: 640px) 210px, 320px"
-                />
-
-                {/* Subtle overlay */}
-                <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-black/15 via-transparent to-transparent" />
-              </div>
-            </div>
-          </div>
-
-          {/* =====================================================
-              LEFT / MAIN CONTENT
-              Mobile: appears after photo
-              Desktop: appears on the left
-             ===================================================== */}
-          <div className="order-2 text-center lg:order-1 lg:text-left animate-fade-up">
+          {/* LEFT */}
+          <div className="animate-fade-up">
 
             {/* Status */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--panel)]/80 px-3.5 py-1.5 backdrop-blur sm:mb-7">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--panel)]/80 px-3.5 py-1.5 backdrop-blur">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--status)] opacity-60" />
+
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--status)]" />
               </span>
 
@@ -107,12 +65,12 @@ export default function Hero() {
             </div>
 
             {/* Name */}
-            <h1 className="text-[clamp(2.8rem,10vw,6.4rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[var(--text)] sm:text-[clamp(3rem,7vw,6.4rem)]">
+            <h1 className="whitespace-nowrap text-[clamp(2.15rem,8.5vw,6.4rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[var(--text)]">
               {SITE.name}
             </h1>
 
             {/* Role */}
-            <div className="mt-6 flex items-center justify-center gap-3 lg:justify-start sm:mt-7">
+            <div className="mt-7 flex items-center gap-3">
               <span className="h-px w-10 bg-[var(--accent-cyan)]" />
 
               <span className="font-mono-brand text-xs uppercase tracking-[0.18em] text-[var(--accent-cyan)]">
@@ -121,14 +79,14 @@ export default function Hero() {
             </div>
 
             {/* Description */}
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--text-muted)] sm:mt-6 sm:text-xl lg:mx-0">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg lg:text-xl">
               I&apos;m a Computer Science Engineering student focused on
               cybersecurity, security monitoring, and practical security
               engineering.
             </p>
 
-            {/* Education line */}
-            <p className="mx-auto mt-4 max-w-2xl font-mono-brand text-[11px] leading-relaxed text-[var(--text-faint)] sm:text-sm lg:mx-0">
+            {/* Education */}
+            <p className="mt-4 max-w-2xl font-mono-brand text-[11px] leading-relaxed text-[var(--text-faint)] sm:text-xs lg:text-sm">
               B.E. Computer Science & Engineering (Cybersecurity)
               <span className="mx-2 text-[var(--border-strong)]">·</span>
               Sri Siddhartha Institute of Technology
@@ -136,10 +94,9 @@ export default function Hero() {
               2029
             </p>
 
-            {/* Buttons + Socials */}
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-9 lg:justify-start">
+            {/* Buttons */}
+            <div className="mt-9 flex flex-wrap items-center gap-3">
 
-              {/* View projects */}
               <a
                 href="#projects"
                 className="group inline-flex items-center gap-2 rounded-md bg-[var(--text)] px-5 py-3 text-sm font-medium text-[var(--bg)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-cyan)]"
@@ -152,7 +109,6 @@ export default function Hero() {
                 />
               </a>
 
-              {/* Contact */}
               <a
                 href="#contact"
                 className="inline-flex items-center rounded-md border border-[var(--border-strong)] px-5 py-3 text-sm font-medium text-[var(--text)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent-cyan)] hover:text-[var(--accent-cyan)]"
@@ -163,7 +119,6 @@ export default function Hero() {
               {/* Socials */}
               <div className="ml-2 flex items-center gap-4 border-l border-[var(--border)] pl-5">
 
-                {/* GitHub */}
                 <a
                   href={LINKS.github}
                   target="_blank"
@@ -174,7 +129,6 @@ export default function Hero() {
                   <GithubIcon />
                 </a>
 
-                {/* LinkedIn */}
                 <a
                   href={LINKS.linkedin}
                   target="_blank"
@@ -185,7 +139,6 @@ export default function Hero() {
                   <LinkedinIcon />
                 </a>
 
-                {/* Email */}
                 <a
                   href={`mailto:${LINKS.email}`}
                   aria-label="Email"
@@ -193,6 +146,41 @@ export default function Hero() {
                 >
                   <Mail size={19} strokeWidth={1.75} />
                 </a>
+
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT — PHOTO */}
+          <div
+            className="relative flex justify-center lg:justify-end animate-fade-up"
+            style={{ animationDelay: '180ms' }}
+          >
+
+            {/* Decorative glow */}
+            <div className="absolute h-64 w-64 animate-photo-glow rounded-full bg-[var(--accent-cyan)]/10 blur-3xl sm:h-96 sm:w-96" />
+
+            {/* Rotating ring */}
+            <div className="absolute h-[275px] w-[275px] animate-spin-slow rounded-full border border-dashed border-[var(--accent-cyan)]/20 sm:h-[390px] sm:w-[390px]" />
+
+            {/* Photo */}
+            <div className="relative animate-photo-float">
+
+              <div className="absolute -inset-3 rounded-full border border-[var(--border-strong)] opacity-70" />
+
+              <div className="relative h-60 w-60 overflow-hidden rounded-full border-2 border-[var(--border-strong)] bg-[var(--panel)] shadow-2xl shadow-black/20 sm:h-80 sm:w-80">
+
+                <Image
+                  src="/profile.jpg"
+                  alt="Bhoomika B C"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 640px) 240px, 320px"
+                />
+
+                {/* Subtle overlay */}
+                <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-black/15 via-transparent to-transparent" />
 
               </div>
             </div>
