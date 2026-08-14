@@ -1,26 +1,1011 @@
 @import "tailwindcss";
 
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #08090b;
+  --bg-soft: #0c0d10;
+  --panel: #111217;
+  --panel-hover: #171920;
+
+  --border: #242731;
+  --border-strong: #343844;
+
+  --text: #f2f3f5;
+  --text-muted: #a8afbc;
+  --text-faint: #687080;
+
+  --accent: #4ea8ff;
+  --accent-cyan: #22d3ee;
+  --status: #34d399;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* =========================================================
+   BASE
+   ========================================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.font-mono-brand {
+  font-family: var(--font-mono);
+}
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  color: var(--text);
+}
+
+/* =========================================================
+   GLOBAL GRID
+   ========================================================= */
+
+.grid-fade {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 44px 44px;
+
+  mask-image:
+    radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      black 40%,
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   CORE ANIMATIONS
+   ========================================================= */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes feed-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-blink-dot {
+  animation: blink-dot 1.8s ease-in-out infinite;
+}
+
+.animate-feed-in {
+  animation: feed-in 0.35s ease-out;
+}
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+
+.reveal-init {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal-in {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #454a57;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+@keyframes photo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes photo-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-photo-float {
+  animation: photo-float 5s ease-in-out infinite;
+}
+
+.animate-photo-glow {
+  animation: photo-glow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 0%,
+      transparent 85%
+    );
+}
+
+/* =========================================================
+   EDUCATION
+   ========================================================= */
+
+.education-background-glow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: 10%;
+  right: -250px;
+
+  border-radius: 9999px;
+
+  background: var(--accent-cyan);
+  opacity: 0.045;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+
+  animation: education-glow 8s ease-in-out infinite;
+}
+
+@keyframes education-glow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-30px, 20px, 0) scale(1.08);
+  }
+}
+
+/* =========================================================
+   EDUCATION TIMELINE
+   ========================================================= */
+
+.education-timeline {
+  position: absolute;
+
+  left: 21px;
+  top: 30px;
+  bottom: 30px;
+
+  width: 1px;
+
+  background: var(--border);
+
+  overflow: hidden;
+}
+
+.education-timeline-progress {
+  position: absolute;
+  inset: 0;
+
+  transform-origin: top;
+
+  background: linear-gradient(
+    to bottom,
+    var(--accent-cyan),
+    var(--accent),
+    var(--border)
+  );
+
+  animation:
+    timeline-grow 2s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+@keyframes timeline-grow {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* =========================================================
+   EDUCATION CARD
+   ========================================================= */
+
+.education-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 25px;
+
+  border: 1px solid var(--border-strong);
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 22, 29, 0.96),
+      rgba(14, 15, 20, 0.96)
+    );
+
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    background 300ms ease;
+
+  transition-delay: var(--education-delay);
+}
+
+.education-card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(52, 216, 238, 0.38);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(23, 26, 34, 0.98),
+      rgba(16, 18, 24, 0.98)
+    );
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    0 0 35px rgba(34, 211, 238, 0.055);
+}
+
+/* =========================================================
+   EDUCATION CARD GLOW
+   ========================================================= */
+
+.education-card-glow {
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  top: -100px;
+  right: -100px;
+
+  border-radius: 9999px;
+
+  background: var(--accent-cyan);
+
+  opacity: 0;
+
+  filter: blur(65px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 500ms ease,
+    transform 700ms ease;
+}
+
+.education-card:hover .education-card-glow {
+  opacity: 0.1;
+  transform: scale(1.4);
+}
+
+/* =========================================================
+   EDUCATION LOGO
+   ========================================================= */
+
+.education-logo {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+
+  background: #0b0d11;
+
+  overflow: hidden;
+
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease,
+    background-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.education-logo img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  padding: 7px;
+
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 300ms ease;
+}
+
+.education-card:hover .education-logo {
+  transform: translateY(-3px);
+
+  border-color: var(--accent-cyan);
+
+  background: #10131a;
+
+  box-shadow:
+    0 0 22px rgba(34, 211, 238, 0.1),
+    0 0 40px rgba(34, 211, 238, 0.035);
+}
+
+.education-card:hover .education-logo img {
+  transform: scale(1.07);
+}
+
+/* =========================================================
+   EDUCATION RESULT
+   ========================================================= */
+
+.education-result {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 8px 12px;
+
+  border: 1px solid var(--border-strong);
+  border-radius: 7px;
+
+  background: #0c0e12;
+
+  font-family: var(--font-mono);
+  font-size: 11px;
+
+  color: var(--text);
+
+  transition:
+    border-color 300ms ease,
+    background-color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.education-card:hover .education-result {
+  border-color: rgba(34, 211, 238, 0.45);
+
+  background: rgba(34, 211, 238, 0.05);
+
+  transform: translateX(3px);
+
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.04);
+}
+
+/* =========================================================
+   EDUCATION CURRENT BADGE
+   ========================================================= */
+
+.education-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 11px;
+
+  border: 1px solid var(--border-strong);
+  border-radius: 9999px;
+
+  background: rgba(52, 211, 153, 0.035);
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: var(--text-muted);
+}
+
+.education-current-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 9999px;
+
+  background: var(--status);
+
+  box-shadow: 0 0 0 0 var(--status);
+
+  animation: current-pulse 2s ease-out infinite;
+}
+
+@keyframes current-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+  }
+
+  70% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* =========================================================
+   CERTIFICATIONS
+   ========================================================= */
+
+.certification-background-glow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: 15%;
+  left: -260px;
+
+  border-radius: 9999px;
+
+  background: var(--accent-cyan);
+  opacity: 0.035;
+
+  filter: blur(110px);
+
+  pointer-events: none;
+
+  animation: certification-glow 10s ease-in-out infinite;
+}
+
+@keyframes certification-glow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(30px, -15px, 0) scale(1.06);
+  }
+}
+
+/* =========================================================
+   CERTIFICATION HEADING
+   ========================================================= */
+
+.certification-heading {
+  opacity: 0;
+  transform: translateY(18px);
+
+  animation:
+    certification-heading-in 800ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+@keyframes certification-heading-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   CERTIFICATION CARD
+   ========================================================= */
+
+.certification-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 370px;
+
+  padding: 28px;
+
+  border: 1px solid var(--border-strong);
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 22, 29, 0.96),
+      rgba(14, 15, 20, 0.96)
+    );
+
+  opacity: 0;
+  transform: translateY(30px);
+
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    background 300ms ease;
+
+  transition-delay: var(--certification-delay);
+}
+
+.certification-card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.certification-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(52, 216, 238, 0.4);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(23, 26, 34, 0.98),
+      rgba(16, 18, 24, 0.98)
+    );
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.26),
+    0 0 38px rgba(34, 211, 238, 0.055);
+}
+
+/* =========================================================
+   CERTIFICATION TOP ACCENT
+   ========================================================= */
+
+.certification-card-line {
+  position: absolute;
+
+  top: 0;
+  left: 24px;
+  right: 24px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      var(--accent-cyan),
+      transparent
+    );
+
+  opacity: 0.3;
+
+  transform: scaleX(0.75);
+
+  transition:
+    opacity 300ms ease,
+    transform 500ms ease;
+}
+
+.certification-card:hover .certification-card-line {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   CERTIFICATION CARD GLOW
+   ========================================================= */
+
+.certification-card-glow {
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  top: -120px;
+  right: -100px;
+
+  border-radius: 9999px;
+
+  background: var(--accent-cyan);
+
+  opacity: 0;
+
+  filter: blur(70px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 500ms ease,
+    transform 700ms ease;
+}
+
+.certification-card:hover .certification-card-glow {
+  opacity: 0.08;
+  transform: scale(1.35);
+}
+
+/* =========================================================
+   CERTIFICATION LOGO
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   These are actual certification logos:
+   /public/cisco.png
+   /public/google.png
+   /public/ibm.png
+
+   They should be clearly visible rather than tiny icons.
+*/
+
+.certification-logo {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 96px;
+  height: 96px;
+  min-width: 96px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+/*
+   Do NOT dim the certification logos.
+   Keep the original image colors and make
+   them occupy most of the available space.
+*/
+
+.certification-logo img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  padding: 10px;
+
+  opacity: 1;
+
+  filter: none;
+
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.certification-card:hover .certification-logo {
+  transform: translateY(-4px);
+
+  border-color: rgba(34, 211, 238, 0.55);
+
+  box-shadow:
+    0 0 25px rgba(34, 211, 238, 0.12),
+    0 0 45px rgba(34, 211, 238, 0.04);
+}
+
+.certification-card:hover .certification-logo img {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   CERTIFICATION TEXT
+   ========================================================= */
+
+.certification-card h3 {
+  color: var(--text);
+}
+
+.certification-card p {
+  color: var(--text-muted);
+}
+
+.certification-card .font-mono-brand {
+  color: var(--text-faint);
+}
+
+/* =========================================================
+   CERTIFICATION YEAR
+   ========================================================= */
+
+.certification-year {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: var(--text-faint);
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   CONTACT ANIMATION
+   ========================================================= */
+
+@keyframes contact-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(420%);
+    opacity: 0;
+  }
+}
+
+.animate-contact-line {
+  animation: contact-line 4s ease-in-out infinite;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .education-timeline {
+    display: none;
+  }
+
+  .education-card {
+    padding: 22px;
+  }
+
+  .education-background-glow {
+    width: 350px;
+    height: 350px;
+    right: -200px;
+  }
+
+  .education-logo {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    border-radius: 12px;
+  }
+
+  .education-logo img {
+    padding: 6px;
+  }
+
+  /* Certification */
+
+  .certification-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .certification-logo {
+    width: 82px;
+    height: 82px;
+    min-width: 82px;
+    border-radius: 12px;
+  }
+
+  .certification-logo img {
+    padding: 8px;
+  }
+
+  .certification-background-glow {
+    width: 350px;
+    height: 350px;
+    left: -220px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .education-background-glow,
+  .education-timeline-progress,
+  .education-current-dot,
+  .animate-photo-float,
+  .animate-photo-glow,
+  .animate-spin-slow,
+  .animate-contact-line,
+  .certification-background-glow,
+  .certification-heading {
+    animation: none !important;
+  }
+
+  .education-card,
+  .certification-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .education-card:hover,
+  .certification-card:hover {
+    transform: none;
+  }
+
+  .education-logo,
+  .education-card:hover .education-logo,
+  .certification-logo,
+  .certification-card:hover .certification-logo {
+    transform: none;
+    transition: none;
+  }
+
+  .education-card:hover .education-logo img,
+  .certification-card:hover .certification-logo img {
+    transform: none;
+    transition: none;
+  }
+
+  .certification-heading {
+    opacity: 1;
+    transform: none;
+  }
 }
