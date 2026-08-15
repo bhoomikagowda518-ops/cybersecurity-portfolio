@@ -177,9 +177,11 @@ function HeroContent() {
 
       {/* Buttons + Socials */}
       <div className="mt-9 flex flex-wrap items-center gap-3">
+
+        {/* Primary CTA */}
         <a
           href="#projects"
-          className="group inline-flex items-center gap-2 rounded-md bg-[var(--text)] px-5 py-3 text-sm font-medium text-[var(--bg)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-cyan)]"
+          className="group inline-flex items-center gap-2 rounded-md bg-[var(--accent-cyan)] px-5 py-3 text-sm font-medium text-[#061014] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#67e8f9] hover:shadow-[0_8px_30px_rgba(34,211,238,0.18)]"
         >
           View projects
 
@@ -189,6 +191,7 @@ function HeroContent() {
           />
         </a>
 
+        {/* Secondary CTA */}
         <a
           href="#contact"
           className="inline-flex items-center rounded-md border border-[var(--border-strong)] px-5 py-3 text-sm font-medium text-[var(--text)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent-cyan)] hover:text-[var(--accent-cyan)]"
@@ -196,6 +199,7 @@ function HeroContent() {
           Get in touch
         </a>
 
+        {/* Social links */}
         <div className="ml-2">
           <SocialLinks />
         </div>
