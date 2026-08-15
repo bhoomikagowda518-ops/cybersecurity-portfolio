@@ -88,7 +88,6 @@ function EducationCard({
 
         {/* Institution Logo */}
         <div className="education-logo">
-
           <Image
             src={education.logo}
             alt={`${education.institution} logo`}
@@ -97,7 +96,6 @@ function EducationCard({
             className="object-contain p-2"
             priority={index === 0}
           />
-
         </div>
 
         {/* Main content */}
@@ -174,15 +172,15 @@ export default function Education() {
 
           <div className="flex items-center gap-3">
 
-            <span className="h-px w-8 bg-[var(--accent-cyan)]" />
-
-            <span className="font-mono-brand text-xs uppercase tracking-[0.2em] text-[var(--accent-cyan)]">
-              Education
+            <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
+              05 — Education
             </span>
+
+            <span className="h-px w-10 bg-[var(--border-strong)]" />
 
           </div>
 
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
+          <h2 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
             Academic background
           </h2>
 

@@ -85,14 +85,24 @@ export default function Skills() {
 
       <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
 
-        {/* Section heading */}
+        {/* Section label */}
         <Reveal>
-          <SectionHeading
-            eyebrow="Skills"
-            title="What I work with"
-            description="A growing technical toolkit built through cybersecurity projects, labs, and continuous hands-on learning."
-          />
-        </Reveal>
+  <div className="flex items-center gap-3">
+    <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
+      04 — Skills
+    </span>
+
+    <span className="h-px w-10 bg-[var(--border-strong)]" />
+  </div>
+
+  <div className="mt-6">
+    <SectionHeading
+      eyebrow=""
+      title="What I work with"
+      description="A growing technical toolkit built through cybersecurity projects, labs, and continuous hands-on learning."
+    />
+  </div>
+</Reveal>
 
         {/* Skill cards */}
         <div className="mt-16 grid gap-5 md:grid-cols-2">

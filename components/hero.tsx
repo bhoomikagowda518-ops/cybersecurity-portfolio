@@ -25,7 +25,7 @@ function LinkedinIcon() {
       className="h-[19px] w-[19px]"
       aria-hidden="true"
     >
-      <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.67H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM3.54 20.45H7.1V8.99H3.54v11.46ZM22.23 0H1.77C.79 0 0 .78 0 1.74v20.52C0 23.22.79 24 1.77 24h20.46C23.21 24 24 23.22 24 22.26V1.74C24 .78 23.21 0 22.23 0Z" />
+      <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.67H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0-4.14ZM3.54 20.45H7.1V8.99H3.54v11.46ZM22.23 0H1.77C.79 0 0 .78 0 1.74v20.52C0 23.22.79 24 1.77 24h20.46C23.21 24 24 23.22 24 22.26V1.74C24 .78 23.21 0 22.23 0Z" />
     </svg>
   );
 }
@@ -71,33 +71,60 @@ function HeroPhoto({ mobile = false }: { mobile?: boolean }) {
         mobile ? '' : 'lg:justify-end'
       }`}
     >
-      {/* Glow */}
-      <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 animate-photo-glow rounded-full bg-[var(--accent-cyan)]/10 blur-3xl sm:h-96 sm:w-96" />
-
-      {/* Rotating ring */}
+      {/* Soft premium atmospheric glow */}
       <div
-        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-dashed border-[var(--accent-cyan)]/20 ${
+        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent-cyan)]/10 blur-[70px] ${
           mobile
-            ? 'h-[300px] w-[300px] sm:h-[390px] sm:w-[390px]'
-            : 'h-[330px] w-[330px] sm:h-[410px] sm:w-[410px]'
+            ? 'h-64 w-64 sm:h-80 sm:w-80'
+            : 'h-72 w-72 sm:h-80 sm:w-80'
+        }`}
+      />
+
+      {/* Wider secondary ambient glow */}
+      <div
+        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent-cyan)]/5 blur-[110px] ${
+          mobile
+            ? 'h-80 w-80 sm:h-[420px] sm:w-[420px]'
+            : 'h-[360px] w-[360px] sm:h-[440px] sm:w-[440px]'
+        }`}
+      />
+
+      {/* Subtle technical ring */}
+      <div
+        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-dashed border-[var(--accent-cyan)]/15 ${
+          mobile
+            ? 'h-[310px] w-[310px] sm:h-[400px] sm:w-[400px]'
+            : 'h-[340px] w-[340px] sm:h-[420px] sm:w-[420px]'
         }`}
       />
 
       {/* Photo */}
       <div className="relative animate-photo-float">
-        <div className="absolute -inset-3 rounded-full border border-[var(--border-strong)] opacity-70" />
 
-        <div className="relative h-72 w-72 overflow-hidden rounded-full border-2 border-[var(--border-strong)] bg-[var(--panel)] shadow-2xl shadow-black/20 sm:h-80 sm:w-80">
+        {/* Fine outer cyan halo */}
+        <div className="absolute -inset-2 rounded-full border border-[var(--accent-cyan)]/15" />
+
+        {/* Neutral outer border */}
+        <div className="absolute -inset-1 rounded-full border border-[var(--border-strong)]/80" />
+
+        <div
+          className={`relative overflow-hidden rounded-full border-2 border-[var(--border-strong)] bg-[var(--panel)] shadow-[0_0_50px_rgba(34,211,238,0.08)] ${
+            mobile
+              ? 'h-64 w-64 sm:h-80 sm:w-80'
+              : 'h-72 w-72 sm:h-80 sm:w-80'
+          }`}
+        >
           <Image
             src="/profile.jpg"
             alt="Bhoomika B C"
             fill
             priority
             className="object-cover"
-            sizes="(max-width: 640px) 288px, 320px"
+            sizes="(max-width: 640px) 256px, 320px"
           />
 
-          <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-black/15 via-transparent to-transparent" />
+          {/* Subtle image shading */}
+          <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-black/20 via-transparent to-white/[0.03]" />
         </div>
       </div>
     </div>
@@ -120,7 +147,7 @@ function HeroContent() {
       </div>
 
       {/* Name */}
-      <h1 className="text-[clamp(3rem,12vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.055em] text-[var(--text)] sm:text-[clamp(3.5rem,10vw,5.5rem)] lg:whitespace-nowrap lg:text-[clamp(2.1rem,7vw,6.4rem)] lg:leading-[0.95]">
+      <h1 className="whitespace-nowrap text-[clamp(2.6rem,11vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.055em] text-[var(--text)] sm:text-[clamp(3.5rem,10vw,5.5rem)] lg:text-[clamp(2.1rem,6vw,6.4rem)] lg:leading-[0.95]">
         {SITE.name}
       </h1>
 
@@ -181,7 +208,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden pt-28 pb-20 sm:pt-40 sm:pb-28"
+      className="relative isolate overflow-hidden pt-28 pb-24 sm:pt-40 sm:pb-32"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -192,16 +219,14 @@ export default function Hero() {
         <div className="absolute right-[-120px] top-[20%] h-[350px] w-[350px] rounded-full bg-[var(--accent)]/5 blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
 
-        {/* MOBILE
-            PHOTO → NAME → CONTENT
-        */}
+        {/* MOBILE */}
         <div className="flex flex-col lg:hidden">
 
           {/* PHOTO FIRST */}
           <div
-            className="order-1 mb-9 flex justify-center animate-fade-up sm:mb-12"
+            className="order-1 mb-10 flex justify-center animate-fade-up sm:mb-14"
             style={{ animationDelay: '120ms' }}
           >
             <HeroPhoto mobile />
@@ -214,9 +239,7 @@ export default function Hero() {
 
         </div>
 
-        {/* DESKTOP
-            CONTENT LEFT → PHOTO RIGHT
-        */}
+        {/* DESKTOP */}
         <div className="hidden items-center gap-16 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
 
           {/* CONTENT LEFT */}

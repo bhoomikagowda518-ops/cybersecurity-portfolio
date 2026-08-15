@@ -56,17 +56,16 @@ export default function Contact() {
             ===================================================== */}
 
         <Reveal>
+          <div className="flex items-center gap-3">
+            <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
+              08 — Contact
+            </span>
+
+            <span className="h-px w-10 bg-[var(--border-strong)]" />
+          </div>
+
           <div className="mb-14 max-w-2xl">
-
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-8 bg-[var(--accent-cyan)]" />
-
-              <span className="font-mono-brand text-xs uppercase tracking-[0.2em] text-[var(--accent-cyan)]">
-                Contact
-              </span>
-            </div>
-
-            <h2 className="text-4xl font-semibold tracking-[-0.04em] text-[var(--text)] sm:text-5xl lg:text-6xl">
+            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[var(--text)] sm:text-5xl lg:text-6xl">
               Let&apos;s build something
               <span className="block text-[var(--accent-cyan)]">
                 worth securing.
@@ -77,7 +76,6 @@ export default function Contact() {
               Have an internship opportunity, a project idea, or simply want
               to connect? Send me a message and I&apos;ll get back to you.
             </p>
-
           </div>
         </Reveal>
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Menu, X, Mail } from 'lucide-react';
-import { NAV_LINKS, SOCIALS } from '@/lib/data';
+import { SOCIALS } from '@/lib/data';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,14 +33,49 @@ export default function Navbar() {
   };
 
   /*
-   * Certifications is intentionally added here instead of relying
-   * on NAV_LINKS from data.ts, so it is guaranteed to appear.
+   * Main navigation order
+   *
+   * About
+   * Projects
+   * Expertise
+   * Skills
+   * Education
+   * Certifications
+   * Journey
+   * Contact
    */
   const navigationLinks = [
-    ...NAV_LINKS.filter((link) => link.href !== '#certifications'),
+    {
+      label: 'About',
+      href: '#about',
+    },
+    {
+      label: 'Projects',
+      href: '#projects',
+    },
+    {
+      label: 'Expertise',
+      href: '#expertise',
+    },
+    {
+      label: 'Skills',
+      href: '#skills',
+    },
+    {
+      label: 'Education',
+      href: '#education',
+    },
     {
       label: 'Certifications',
       href: '#certifications',
+    },
+    {
+      label: 'Journey',
+      href: '#learning',
+    },
+    {
+      label: 'Contact',
+      href: '#contact',
     },
   ];
 

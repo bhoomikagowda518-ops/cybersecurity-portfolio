@@ -8,10 +8,10 @@ import {
   ArrowUpRight,
   CircleDot,
   Crosshair,
-  Network,
-  Terminal,
-  Shield,
   Globe,
+  Network,
+  Shield,
+  Terminal,
 } from 'lucide-react';
 
 const ICONS = [
@@ -31,31 +31,55 @@ export default function Learning() {
   return (
     <section
       id="learning"
-      className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--bg-soft)]"
+      className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--bg)]"
     >
-      {/* Background atmosphere */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute right-[8%] top-[15%] h-72 w-72 rounded-full bg-[var(--accent-cyan)]/[0.025] blur-[120px]" />
+      {/* =====================================================
+          BACKGROUND ATMOSPHERE
+          ===================================================== */}
 
-        <div className="absolute bottom-[5%] left-[5%] h-64 w-64 rounded-full bg-[var(--accent)]/[0.02] blur-[120px]" />
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute right-[8%] top-[15%] h-72 w-72 rounded-full bg-[var(--accent-cyan)]/[0.018] blur-[120px]" />
+
+        <div className="absolute bottom-[5%] left-[5%] h-64 w-64 rounded-full bg-[var(--accent)]/[0.015] blur-[120px]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
 
-        {/* Heading */}
+        {/* =====================================================
+            SECTION HEADER
+            ===================================================== */}
+
         <Reveal>
-          <SectionHeading
-            eyebrow="Learning Journey"
-            title="Areas I'm actively developing"
-            description="The security domains I'm currently exploring through projects, labs, experimentation, and hands-on practice."
-          />
+          <div className="flex items-center gap-3">
+            <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
+              07 — Learning
+            </span>
+
+            <span className="h-px w-10 bg-[var(--border-strong)]" />
+          </div>
         </Reveal>
 
-        {/* Main panel */}
+        <Reveal delay={80}>
+          <div className="mt-6">
+            <SectionHeading
+              eyebrow=""
+              title="Areas I'm actively developing"
+              description="The security domains I'm currently exploring through projects, labs, experimentation, and hands-on practice."
+            />
+          </div>
+        </Reveal>
+
+        {/* =====================================================
+            MAIN PANEL
+            ===================================================== */}
+
         <Reveal delay={100}>
           <div className="mt-14 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--panel)] shadow-[0_20px_70px_rgba(0,0,0,0.08)]">
 
-            {/* Header */}
+            {/* =================================================
+                HEADER
+                ================================================= */}
+
             <div className="flex flex-col gap-4 border-b border-[var(--border)] px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
 
               <div className="flex items-center gap-3">
@@ -95,7 +119,10 @@ export default function Learning() {
               </div>
             </div>
 
-            {/* Items */}
+            {/* =================================================
+                ITEMS
+                ================================================= */}
+
             <div className="divide-y divide-[var(--border)]">
 
               {LEARNING_ITEMS.map((item, i) => {
@@ -137,7 +164,10 @@ export default function Learning() {
                         <div className="absolute bottom-0 left-0 top-0 w-px bg-[var(--status)] opacity-80 transition-all duration-500 group-hover:w-[2px]" />
                       )}
 
-                      {/* Left */}
+                      {/* =================================================
+                          LEFT
+                          ================================================= */}
+
                       <div className="relative flex min-w-0 items-center gap-4 sm:gap-5">
 
                         {/* Number */}
@@ -214,7 +244,10 @@ export default function Learning() {
                         </div>
                       </div>
 
-                      {/* Right */}
+                      {/* =================================================
+                          RIGHT
+                          ================================================= */}
+
                       <div className="relative ml-4 flex shrink-0 items-center gap-3">
 
                         {/* Status */}
@@ -267,7 +300,10 @@ export default function Learning() {
 
             </div>
 
-            {/* Footer */}
+            {/* =================================================
+                FOOTER
+                ================================================= */}
+
             <div className="border-t border-[var(--border)] bg-[var(--bg-soft)]/40 px-6 py-4 sm:px-7">
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

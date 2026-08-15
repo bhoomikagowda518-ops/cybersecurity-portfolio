@@ -10,7 +10,7 @@ const CERTIFICATIONS = [
     issuer: 'IBM',
     title: 'Introduction to HTML, CSS, & JavaScript',
     platform: 'Coursera',
-    year: '2025',
+    year: '2026',
     credential:
       'https://www.coursera.org/account/accomplishments/records/HDF2Y27VZOFN',
   },
@@ -19,7 +19,7 @@ const CERTIFICATIONS = [
     issuer: 'Google',
     title: 'Introduction to AI',
     platform: 'Coursera',
-    year: '2025',
+    year: '2026',
     credential:
       'https://www.coursera.org/account/accomplishments/records/H76C137TGNMQ',
   },
@@ -28,7 +28,7 @@ const CERTIFICATIONS = [
     issuer: 'Cisco',
     title: 'Introduction to Cybersecurity',
     platform: 'Cisco Networking Academy',
-    year: '2025',
+    year: '2026',
     credential:
       'https://www.credly.com/badges/cdb2e957-2e2b-48d1-81c6-1b4d64530bb5/linked_in_profile',
   },
@@ -153,9 +153,14 @@ export default function Certifications() {
 
         {/* Heading */}
         <div className="certification-heading mb-14">
-          <span className="font-mono-brand text-xs uppercase tracking-[0.2em] text-[var(--accent-cyan)]">
-            Certifications
-          </span>
+
+          <div className="flex items-center gap-3">
+            <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
+              06 — Certifications
+            </span>
+
+            <span className="h-px w-10 bg-[var(--border-strong)]" />
+          </div>
 
           <h2 className="mt-4 text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
             Building foundation
