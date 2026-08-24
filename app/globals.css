@@ -1697,3 +1697,74 @@ section {
     transition: none;
   }
 }
+/* =========================================================
+   CONTACT — MOBILE ALIGNMENT / OVERFLOW FIX
+   ========================================================= */
+
+@media (max-width: 640px) {
+  #contact {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  #contact > div {
+    width: 100%;
+    max-width: 1152px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  /* Prevent Reveal animations from creating horizontal overflow */
+  #contact .reveal-init,
+  #contact .reveal-in {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Main two-panel grid */
+  #contact .grid {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  /* Contact panels */
+  #contact .contact-panel {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  /* Prevent long email/text from pushing the panel */
+  #contact .contact-link {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  #contact .contact-link > span {
+    min-width: 0;
+  }
+
+  /* Form controls must stay inside the panel */
+  #contact input,
+  #contact textarea,
+  #contact button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Bottom footer */
+  #contact .mt-12 {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}

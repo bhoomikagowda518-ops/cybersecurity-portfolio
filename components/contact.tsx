@@ -35,13 +35,13 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-[var(--border)] py-24 sm:py-32"
+      className="relative w-full max-w-full overflow-x-hidden border-t border-[var(--border)] py-24 sm:py-32"
     >
       {/* =====================================================
           BACKGROUND
           ===================================================== */}
 
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-[-180px] top-1/3 h-[420px] w-[420px] rounded-full bg-[var(--accent-cyan)]/5 blur-[130px]" />
 
         <div className="absolute bottom-0 right-[-180px] h-[420px] w-[420px] rounded-full bg-[var(--accent)]/5 blur-[130px]" />
@@ -49,13 +49,13 @@ export default function Contact() {
         <div className="absolute inset-0 opacity-[0.18] hero-grid" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto w-full max-w-6xl min-w-0 px-5 sm:px-6">
 
         {/* =====================================================
             HEADING
             ===================================================== */}
 
-        <Reveal>
+        <Reveal className="w-full min-w-0 max-w-full">
           <div className="flex items-center gap-3">
             <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
               08 — Contact
@@ -83,25 +83,26 @@ export default function Contact() {
             CONTACT CONTENT
             ===================================================== */}
 
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
+        <div className="grid w-full min-w-0 max-w-full gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-12">
 
           {/* ===================================================
               LEFT PANEL
               =================================================== */}
 
-          <Reveal>
+          <Reveal className="w-full min-w-0 max-w-full">
 
             <div
               className="
                 contact-panel
-                relative h-full overflow-hidden rounded-2xl
+                relative h-full w-full min-w-0 max-w-full
+                overflow-hidden rounded-2xl
                 border border-[#292d37]
                 bg-[var(--panel)]/90
-                p-7 backdrop-blur-sm
+                p-6
+                backdrop-blur-sm
                 sm:p-8
               "
             >
-
               {/* Subtle animated accent */}
               <div className="contact-panel-glow" />
 
@@ -111,7 +112,7 @@ export default function Contact() {
               {/* Top accent */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-cyan)]/45 to-transparent" />
 
-              <div className="relative">
+              <div className="relative min-w-0">
 
                 <div className="mb-8">
 
@@ -127,9 +128,9 @@ export default function Contact() {
 
                 {/* Availability */}
 
-                <div className="mb-8 flex items-center gap-3 rounded-xl border border-[#292d37] bg-[#0b0d11] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]">
+                <div className="mb-8 flex min-w-0 items-center gap-3 rounded-xl border border-[#292d37] bg-[#0b0d11] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]">
 
-                  <span className="relative flex h-2.5 w-2.5">
+                  <span className="relative flex h-2.5 w-2.5 shrink-0">
 
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--status)] opacity-50" />
 
@@ -137,7 +138,7 @@ export default function Contact() {
 
                   </span>
 
-                  <span className="font-mono-brand text-xs text-[var(--text-muted)]">
+                  <span className="min-w-0 font-mono-brand text-xs text-[var(--text-muted)]">
                     Open to internships &amp; collaboration
                   </span>
 
@@ -149,7 +150,8 @@ export default function Contact() {
                   href={`mailto:${LINKS.email}`}
                   className="
                     contact-link group mb-3
-                    flex items-center gap-4
+                    flex min-w-0 w-full
+                    items-center gap-3
                     rounded-xl border border-[#252932]
                     bg-[#0d0f13]/60
                     p-3.5
@@ -160,7 +162,6 @@ export default function Contact() {
                     hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]
                   "
                 >
-
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#30343e] bg-[var(--bg)] text-[var(--text-muted)] transition-all duration-300 group-hover:border-[var(--accent-cyan)]/50 group-hover:bg-[var(--accent-cyan)]/5 group-hover:text-[var(--accent-cyan)]">
 
                     <Mail
@@ -170,7 +171,7 @@ export default function Contact() {
 
                   </span>
 
-                  <span className="min-w-0">
+                  <span className="min-w-0 flex-1">
 
                     <span className="block font-mono-brand text-[10px] uppercase tracking-wider text-[var(--text-faint)]">
                       Email
@@ -197,7 +198,8 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="
                     contact-link group mb-3
-                    flex items-center gap-4
+                    flex min-w-0 w-full
+                    items-center gap-3
                     rounded-xl border border-[#252932]
                     bg-[#0d0f13]/60
                     p-3.5
@@ -208,14 +210,13 @@ export default function Contact() {
                     hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]
                   "
                 >
-
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#30343e] bg-[var(--bg)] text-[var(--text-muted)] transition-all duration-300 group-hover:border-[var(--accent-cyan)]/50 group-hover:bg-[var(--accent-cyan)]/5 group-hover:text-[var(--accent-cyan)]">
 
                     <LinkedinIcon />
 
                   </span>
 
-                  <span>
+                  <span className="min-w-0 flex-1">
 
                     <span className="block font-mono-brand text-[10px] uppercase tracking-wider text-[var(--text-faint)]">
                       LinkedIn
@@ -236,7 +237,7 @@ export default function Contact() {
 
                 {/* Location */}
 
-                <div className="flex items-center gap-4 rounded-xl border border-transparent p-3.5">
+                <div className="flex min-w-0 items-center gap-3 rounded-xl border border-transparent p-3.5">
 
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#30343e] bg-[var(--bg)] text-[var(--text-muted)]">
 
@@ -247,13 +248,13 @@ export default function Contact() {
 
                   </span>
 
-                  <span>
+                  <span className="min-w-0">
 
                     <span className="block font-mono-brand text-[10px] uppercase tracking-wider text-[var(--text-faint)]">
                       Location
                     </span>
 
-                    <span className="mt-1 block text-sm font-medium text-[var(--text)]">
+                    <span className="mt-1 block truncate text-sm font-medium text-[var(--text)]">
                       {SITE.location}
                     </span>
 
@@ -263,11 +264,11 @@ export default function Contact() {
 
                 {/* Terminal */}
 
-                <div className="mt-10 overflow-hidden rounded-xl border border-[#292d37] bg-[#090a0d] shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]">
+                <div className="mt-10 w-full min-w-0 max-w-full overflow-hidden rounded-xl border border-[#292d37] bg-[#090a0d] shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]">
 
                   <div className="flex items-center gap-2 border-b border-[#292d37] px-4 py-3">
 
-                    <span className="h-2 w-2 rounded-full bg-[var(--status)] shadow-[0_0_8px_rgba(52,211,153,0.35)]" />
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-[var(--status)] shadow-[0_0_8px_rgba(52,211,153,0.35)]" />
 
                     <span className="font-mono-brand text-[10px] uppercase tracking-wider text-[var(--text-faint)]">
                       connection.status
@@ -275,23 +276,23 @@ export default function Contact() {
 
                   </div>
 
-                  <div className="space-y-2 px-4 py-4 font-mono-brand text-[11px]">
+                  <div className="space-y-2 overflow-hidden px-4 py-4 font-mono-brand text-[11px]">
 
-                    <p className="text-[var(--text-faint)]">
+                    <p className="truncate text-[var(--text-faint)]">
                       <span className="text-[var(--accent-cyan)]">
                         $
                       </span>{' '}
                       ping bhoomika
                     </p>
 
-                    <p className="text-[var(--text-muted)]">
+                    <p className="truncate text-[var(--text-muted)]">
                       response:{' '}
                       <span className="text-[var(--status)]">
                         online
                       </span>
                     </p>
 
-                    <p className="text-[var(--text-muted)]">
+                    <p className="truncate text-[var(--text-muted)]">
                       status:{' '}
                       <span className="text-[var(--accent-cyan)]">
                         available
@@ -311,21 +312,24 @@ export default function Contact() {
               RIGHT PANEL
               =================================================== */}
 
-          <Reveal delay={120}>
+          <Reveal
+            delay={120}
+            className="w-full min-w-0 max-w-full"
+          >
 
             <div
               className="
                 contact-panel
-                relative overflow-hidden rounded-2xl
+                relative w-full min-w-0 max-w-full
+                overflow-hidden rounded-2xl
                 border border-[#30343e]
                 bg-[var(--panel)]/95
-                p-7
+                p-6
                 shadow-[0_20px_70px_rgba(0,0,0,0.18)]
                 backdrop-blur-sm
                 sm:p-9
               "
             >
-
               {/* Animated glow */}
 
               <div className="contact-panel-glow" />
@@ -343,9 +347,9 @@ export default function Contact() {
 
                   {/* Form heading */}
 
-                  <div className="relative mb-8 flex items-start justify-between gap-6">
+                  <div className="relative mb-8 flex min-w-0 items-start justify-between gap-4">
 
-                    <div>
+                    <div className="min-w-0">
 
                       <span className="font-mono-brand text-[10px] uppercase tracking-[0.18em] text-[var(--accent-cyan)]">
                         Quick message
@@ -357,7 +361,7 @@ export default function Contact() {
 
                     </div>
 
-                    <div className="hidden h-10 w-10 items-center justify-center rounded-full border border-[#30343e] bg-[#0b0d11] sm:flex">
+                    <div className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#30343e] bg-[#0b0d11] sm:flex">
 
                       <Send
                         size={16}
@@ -371,14 +375,14 @@ export default function Contact() {
 
                   <form
                     onSubmit={handleSubmit}
-                    className="relative space-y-5"
+                    className="relative min-w-0 space-y-5"
                   >
 
                     {/* Name + Email */}
 
-                    <div className="grid gap-5 sm:grid-cols-2">
+                    <div className="grid min-w-0 gap-5 sm:grid-cols-2">
 
-                      <div>
+                      <div className="min-w-0">
 
                         <label
                           htmlFor="contact-name"
@@ -395,7 +399,8 @@ export default function Contact() {
                           placeholder="Lisa Morgan"
                           className="
                             contact-input
-                            w-full rounded-lg
+                            box-border w-full min-w-0 max-w-full
+                            rounded-lg
                             border border-[#30343e]
                             bg-[#0b0d11]
                             px-4 py-3.5
@@ -414,7 +419,7 @@ export default function Contact() {
 
                       </div>
 
-                      <div>
+                      <div className="min-w-0">
 
                         <label
                           htmlFor="contact-email"
@@ -431,7 +436,8 @@ export default function Contact() {
                           placeholder="lisa@example.com"
                           className="
                             contact-input
-                            w-full rounded-lg
+                            box-border w-full min-w-0 max-w-full
+                            rounded-lg
                             border border-[#30343e]
                             bg-[#0b0d11]
                             px-4 py-3.5
@@ -454,7 +460,7 @@ export default function Contact() {
 
                     {/* Subject */}
 
-                    <div>
+                    <div className="min-w-0">
 
                       <label
                         htmlFor="contact-subject"
@@ -471,7 +477,8 @@ export default function Contact() {
                         placeholder="Internship opportunity"
                         className="
                           contact-input
-                          w-full rounded-lg
+                          box-border w-full min-w-0 max-w-full
+                          rounded-lg
                           border border-[#30343e]
                           bg-[#0b0d11]
                           px-4 py-3.5
@@ -492,7 +499,7 @@ export default function Contact() {
 
                     {/* Message */}
 
-                    <div>
+                    <div className="min-w-0">
 
                       <label
                         htmlFor="contact-message"
@@ -510,7 +517,8 @@ export default function Contact() {
                         placeholder="Hi Bhoomika, I came across your portfolio and wanted to discuss..."
                         className="
                           contact-input
-                          w-full resize-none rounded-lg
+                          box-border w-full min-w-0 max-w-full
+                          resize-none rounded-lg
                           border border-[#30343e]
                           bg-[#0b0d11]
                           px-4 py-3.5
@@ -532,7 +540,7 @@ export default function Contact() {
 
                     {/* Submit */}
 
-                    <div className="flex flex-col gap-4 pt-1 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex min-w-0 flex-col gap-4 pt-1 sm:flex-row sm:items-center sm:justify-between">
 
                       <p className="max-w-xs text-xs leading-relaxed text-[var(--text-faint)]">
                         Your message will be handled privately and used only
@@ -620,9 +628,12 @@ export default function Contact() {
             BOTTOM
             ===================================================== */}
 
-        <Reveal delay={180}>
+        <Reveal
+          delay={180}
+          className="w-full min-w-0 max-w-full"
+        >
 
-          <div className="mt-12 flex flex-col gap-3 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-12 flex min-w-0 flex-col gap-3 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
 
             <p className="font-mono-brand text-[10px] uppercase tracking-[0.16em] text-[var(--text-faint)]">
               {SITE.name} / Cybersecurity
