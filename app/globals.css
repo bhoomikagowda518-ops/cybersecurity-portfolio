@@ -14,7 +14,6 @@
   --text: #f2f3f5;
   --text-muted: #a8afbc;
   --text-faint: #687080;
-
   --accent: #4ea8ff;
   --accent-cyan: #22d3ee;
   --status: #34d399;
@@ -333,10 +332,14 @@ body {
   height: 500px;
   top: 10%;
   right: -250px;
+
   border-radius: 9999px;
+
   background: var(--accent-cyan);
   opacity: 0.035;
+
   filter: blur(100px);
+
   pointer-events: none;
 
   animation:
@@ -358,22 +361,38 @@ body {
 }
 
 /* =========================================================
-   EDUCATION TIMELINE
+   EDUCATION — DESKTOP
    ========================================================= */
+
+.education-desktop {
+  display: block;
+}
+
+.education-mobile {
+  display: none;
+}
+
+/* Desktop timeline */
 
 .education-timeline {
   position: absolute;
+
   left: 21px;
   top: 30px;
   bottom: 30px;
+
   width: 1px;
+
   background: var(--border);
+
   overflow: hidden;
 }
 
 .education-timeline-progress {
   position: absolute;
+
   inset: 0;
+
   transform-origin: top;
 
   background:
@@ -401,12 +420,55 @@ body {
   }
 }
 
-/* =========================================================
-   EDUCATION CARD
-   ========================================================= */
+/* Desktop node */
+
+.education-desktop-node {
+  position: absolute;
+
+  left: -36px;
+  top: 28px;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 13px;
+  height: 13px;
+
+  border: 2px solid var(--bg);
+  border-radius: 9999px;
+
+  background: var(--accent-cyan);
+
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.3),
+    0 0 16px rgba(34, 211, 238, 0.35);
+
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.education-desktop-node span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 9999px;
+
+  background: #cffafe;
+}
+
+.education-desktop-node:hover {
+  transform: scale(1.2);
+}
+
+/* Desktop card */
 
 .education-card {
   position: relative;
+
   overflow: hidden;
 
   padding: 25px;
@@ -421,22 +483,11 @@ body {
       rgba(14, 15, 20, 0.96)
     );
 
-  opacity: 0;
-  transform: translate3d(0, 28px, 0);
-
   transition:
-    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 300ms ease,
     border-color 300ms ease,
     box-shadow 300ms ease,
     background 300ms ease;
-
-  transition-delay: var(--education-delay);
-}
-
-.education-card-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
 }
 
 .education-card:hover {
@@ -456,9 +507,7 @@ body {
     0 0 35px rgba(34, 211, 238, 0.055);
 }
 
-/* =========================================================
-   EDUCATION CARD GLOW
-   ========================================================= */
+/* Desktop card glow */
 
 .education-card-glow {
   position: absolute;
@@ -472,6 +521,7 @@ body {
   border-radius: 9999px;
 
   background: var(--accent-cyan);
+
   opacity: 0;
 
   filter: blur(65px);
@@ -488,9 +538,7 @@ body {
   transform: scale(1.4);
 }
 
-/* =========================================================
-   EDUCATION LOGO
-   ========================================================= */
+/* Desktop logo */
 
 .education-logo {
   position: relative;
@@ -525,6 +573,7 @@ body {
   height: 100%;
 
   object-fit: contain;
+
   padding: 7px;
 
   transition:
@@ -532,10 +581,26 @@ body {
     filter 300ms ease;
 }
 
+.education-logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 600;
+
+  color: var(--accent-cyan);
+}
+
 .education-card:hover .education-logo {
   transform: translate3d(0, -3px, 0);
 
   border-color: var(--accent-cyan);
+
   background: #10131a;
 
   box-shadow:
@@ -547,9 +612,7 @@ body {
   transform: scale(1.07);
 }
 
-/* =========================================================
-   EDUCATION RESULT
-   ========================================================= */
+/* Desktop result */
 
 .education-result {
   display: inline-flex;
@@ -564,6 +627,7 @@ body {
 
   font-family: var(--font-mono);
   font-size: 11px;
+
   color: var(--text);
 
   transition:
@@ -584,9 +648,7 @@ body {
     0 0 18px rgba(34, 211, 238, 0.04);
 }
 
-/* =========================================================
-   EDUCATION CURRENT BADGE
-   ========================================================= */
+/* Current badge */
 
 .education-current {
   display: inline-flex;
@@ -602,6 +664,7 @@ body {
 
   font-family: var(--font-mono);
   font-size: 10px;
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
 
@@ -659,6 +722,7 @@ body {
   border-radius: 9999px;
 
   background: var(--accent-cyan);
+
   opacity: 0.03;
 
   filter: blur(110px);
@@ -689,6 +753,7 @@ body {
 
 .certification-heading {
   opacity: 0;
+
   transform: translate3d(0, 16px, 0);
 
   animation:
@@ -711,9 +776,11 @@ body {
 
 .certification-card {
   position: relative;
+
   overflow: hidden;
 
   min-height: 370px;
+
   padding: 28px;
 
   border: 1px solid var(--border-strong);
@@ -727,6 +794,7 @@ body {
     );
 
   opacity: 0;
+
   transform: translate3d(0, 26px, 0);
 
   transition:
@@ -783,6 +851,7 @@ body {
     );
 
   opacity: 0.3;
+
   transform: scaleX(0.75);
 
   transition:
@@ -811,6 +880,7 @@ body {
   border-radius: 9999px;
 
   background: var(--accent-cyan);
+
   opacity: 0;
 
   filter: blur(70px);
@@ -844,6 +914,7 @@ body {
   min-width: 96px;
 
   border: 1px solid var(--border);
+
   border-radius: 14px;
 
   background: #ffffff;
@@ -863,9 +934,11 @@ body {
   height: 100%;
 
   object-fit: contain;
+
   padding: 10px;
 
   opacity: 1;
+
   filter: none;
 
   transition:
@@ -921,6 +994,7 @@ body {
 
   font-family: var(--font-mono);
   font-size: 10px;
+
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -994,21 +1068,33 @@ section {
 }
 
 /* =========================================================
-   MOBILE EDUCATION TIMELINE
+   EDUCATION — MOBILE
    ========================================================= */
+
+.education-mobile {
+  display: none;
+}
+
+.education-mobile-timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+/* Mobile rail */
 
 .education-mobile-rail {
   position: absolute;
 
-  left: 13px;
-  top: 20px;
-  bottom: 55px;
+  left: 9px;
+  top: 8px;
+  bottom: 8px;
 
-  width: 1px;
+  width: 2px;
 
   background: var(--border);
 
   overflow: hidden;
+
   pointer-events: none;
 }
 
@@ -1017,38 +1103,56 @@ section {
 
   inset: 0;
 
-  width: 1px;
+  width: 100%;
+
+  transform-origin: top;
 
   background:
     linear-gradient(
       to bottom,
-      rgba(34, 211, 238, 0.7),
-      rgba(34, 211, 238, 0.25) 45%,
-      rgba(34, 211, 238, 0.05) 85%,
+      rgba(34, 211, 238, 0.9),
+      rgba(78, 168, 255, 0.55) 45%,
+      rgba(34, 211, 238, 0.12) 80%,
       transparent
     );
+
+  animation:
+    mobile-rail-grow
+    2s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
 }
 
-/* Moving signal traveling down the timeline */
+@keyframes mobile-rail-grow {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Moving signal */
 
 .education-mobile-signal {
   position: absolute;
 
-  left: 50%;
+  left: 9px;
   top: -30px;
 
   width: 3px;
-  height: 30px;
+  height: 32px;
 
   transform: translateX(-50%);
 
-  border-radius: 999px;
+  border-radius: 9999px;
 
   background:
     linear-gradient(
       to bottom,
       transparent,
-      rgba(103, 232, 249, 0.9),
+      rgba(103, 232, 249, 0.95),
       transparent
     );
 
@@ -1059,6 +1163,8 @@ section {
     5s
     ease-in-out
     infinite;
+
+  pointer-events: none;
 }
 
 @keyframes educationSignal {
@@ -1081,86 +1187,90 @@ section {
   }
 }
 
-/* =========================================================
-   MOBILE TIMELINE ITEMS
-   ========================================================= */
+/* Mobile item */
 
 .education-mobile-item {
   position: relative;
-  padding-left: 38px;
+
+  padding-left: 0;
+
+  margin-bottom: 28px;
 }
 
-/* Timeline node */
+.education-mobile-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile node */
 
 .education-mobile-node {
   position: absolute;
 
-  left: 13px;
-  top: 22px;
+  left: -23px;
+  top: 24px;
 
   z-index: 5;
 
-  width: 10px;
-  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
 
   border: 2px solid var(--bg);
-  border-radius: 999px;
+
+  border-radius: 9999px;
 
   background: var(--accent-cyan);
 
   box-shadow:
-    0 0 0 1px rgba(34, 211, 238, 0.25),
-    0 0 14px rgba(34, 211, 238, 0.35);
+    0 0 0 1px rgba(34, 211, 238, 0.3),
+    0 0 15px rgba(34, 211, 238, 0.45);
+
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
 }
 
-.education-mobile-node-inner {
-  position: absolute;
+.education-mobile-node span {
+  width: 4px;
+  height: 4px;
 
-  left: 50%;
-  top: 50%;
+  border-radius: 9999px;
 
-  display: flex;
-
-  width: 25px;
-  height: 25px;
-
-  transform: translate(-50%, -50%);
-
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(34, 211, 238, 0.15);
-  border-radius: 999px;
-
-  background: var(--bg);
+  background: #cffafe;
 }
 
-.education-mobile-node-inner span {
-  font-family: var(--font-mono);
-  font-size: 7px;
-  letter-spacing: 0.08em;
-  color: var(--accent-cyan);
+.education-mobile-item:hover .education-mobile-node {
+  transform: scale(1.25);
+
+  box-shadow:
+    0 0 0 3px rgba(34, 211, 238, 0.12),
+    0 0 22px rgba(34, 211, 238, 0.65);
 }
 
-/* =========================================================
-   MOBILE EDUCATION CARD
-   ========================================================= */
+/* Mobile card */
 
 .education-mobile-card {
   position: relative;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
   overflow: hidden;
 
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  padding: 17px;
 
-  padding: 18px;
+  border: 1px solid var(--border-strong);
+
+  border-radius: 16px;
 
   background:
     linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.018),
+      rgba(255, 255, 255, 0.025),
       transparent 55%
     ),
     var(--panel);
@@ -1168,7 +1278,8 @@ section {
   transition:
     transform 300ms ease,
     border-color 300ms ease,
-    box-shadow 300ms ease;
+    box-shadow 300ms ease,
+    background 300ms ease;
 }
 
 .education-mobile-card::before {
@@ -1180,12 +1291,13 @@ section {
   top: 0;
   bottom: 0;
 
-  width: 1px;
+  width: 2px;
 
   background:
     linear-gradient(
       to bottom,
-      rgba(34, 211, 238, 0.45),
+      rgba(34, 211, 238, 0.7),
+      rgba(78, 168, 255, 0.2),
       transparent
     );
 }
@@ -1198,71 +1310,179 @@ section {
   right: -50px;
   top: -50px;
 
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
 
-  border-radius: 999px;
+  border-radius: 9999px;
 
-  background: rgba(34, 211, 238, 0.025);
+  background: rgba(34, 211, 238, 0.035);
 
   filter: blur(30px);
 
   pointer-events: none;
 }
 
+.education-mobile-item:hover .education-mobile-card {
+  transform: translateY(-4px);
+
+  border-color: rgba(34, 211, 238, 0.35);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 55%
+    ),
+    #151820;
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(34, 211, 238, 0.045);
+}
+
+/* Mobile logo */
+
 .education-mobile-logo {
   position: relative;
 
   flex-shrink: 0;
 
-  width: 52px;
-  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
 
   overflow: hidden;
 
   border: 1px solid var(--border-strong);
+
   border-radius: 12px;
 
-  background: var(--bg);
+  background: #0b0d11;
+
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
 }
+
+.education-mobile-logo img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  padding: 5px;
+
+  box-sizing: border-box;
+}
+
+.education-mobile-logo .education-logo-placeholder {
+  font-size: 17px;
+}
+
+.education-mobile-item:hover .education-mobile-logo {
+  transform: translateY(-2px);
+
+  border-color: rgba(34, 211, 238, 0.45);
+
+  box-shadow:
+    0 0 18px rgba(34, 211, 238, 0.08);
+}
+
+/* Mobile result */
 
 .education-mobile-result {
   display: inline-flex;
   align-items: center;
 
-  border: 1px solid rgba(34, 211, 238, 0.16);
-  border-radius: 6px;
+  width: fit-content;
 
   padding: 5px 8px;
+
+  border: 1px solid rgba(34, 211, 238, 0.18);
+
+  border-radius: 6px;
 
   background: rgba(34, 211, 238, 0.035);
 
   font-family: var(--font-mono);
+
   font-size: 9px;
 
   color: var(--accent-cyan);
 }
 
-/* =========================================================
-   MOBILE TIMELINE END
-   ========================================================= */
+/* Mobile current */
+
+.education-mobile-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  width: fit-content;
+
+  padding: 5px 8px;
+
+  border: 1px solid rgba(52, 211, 153, 0.16);
+
+  border-radius: 9999px;
+
+  background: rgba(52, 211, 153, 0.025);
+
+  font-family: var(--font-mono);
+
+  font-size: 8px;
+
+  color: var(--text-muted);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+.education-mobile-current-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 9999px;
+
+  background: var(--status);
+
+  box-shadow:
+    0 0 8px rgba(52, 211, 153, 0.45);
+
+  animation:
+    current-pulse
+    2.5s
+    ease-out
+    infinite;
+}
+
+/* Mobile end */
 
 .education-mobile-end {
   display: flex;
   align-items: center;
   gap: 10px;
 
-  margin-top: 4px;
-  margin-left: 2px;
-  padding-left: 0;
+  margin-top: 2px;
+  margin-left: -23px;
 }
 
 .education-mobile-end > span:first-child {
-  width: 23px;
-  height: 23px;
+  display: block;
 
-  border: 1px solid rgba(34, 211, 238, 0.15);
-  border-radius: 999px;
+  width: 18px;
+  height: 18px;
+
+  border: 1px solid rgba(34, 211, 238, 0.2);
+
+  border-radius: 9999px;
 
   background: var(--bg);
 
@@ -1278,9 +1498,9 @@ section {
   width: 5px;
   height: 5px;
 
-  margin: 8px auto;
+  margin: 6px auto;
 
-  border-radius: 999px;
+  border-radius: 9999px;
 
   background: var(--accent-cyan);
 
@@ -1297,30 +1517,49 @@ section {
     --section-y-large: 6.5rem;
   }
 
-  .education-timeline {
-    display: none;
+  /* Education */
+
+  .education-desktop {
+    display: none !important;
   }
 
-  .education-card {
-    padding: 22px;
+  .education-mobile {
+    display: block !important;
   }
 
   .education-background-glow {
     width: 350px;
     height: 350px;
+
     right: -200px;
   }
 
-  .education-logo {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
-    border-radius: 12px;
+  .education-mobile-timeline {
+    padding-left: 31px;
   }
 
-  .education-logo img {
-    padding: 6px;
+  .education-mobile-rail {
+    left: 8px;
   }
+
+  .education-mobile-signal {
+    left: 8px;
+  }
+
+  .education-mobile-node {
+    left: -22px;
+  }
+
+  .education-mobile-card {
+    padding: 16px;
+  }
+
+  .education-mobile-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Certifications */
 
   .certification-card {
     min-height: auto;
@@ -1341,6 +1580,7 @@ section {
   .certification-background-glow {
     width: 350px;
     height: 350px;
+
     left: -220px;
   }
 }
@@ -1355,11 +1595,29 @@ section {
     --section-y-large: 6rem;
   }
 
-  .certification-card {
-    padding: 20px;
+  .education-mobile-timeline {
+    padding-left: 29px;
   }
 
-  .education-card {
+  .education-mobile-card {
+    padding: 14px;
+  }
+
+  .education-mobile-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .education-mobile-node {
+    left: -21px;
+  }
+
+  .education-mobile-result {
+    font-size: 8px;
+    padding: 4px 7px;
+  }
+
+  .certification-card {
     padding: 20px;
   }
 }
@@ -1385,13 +1643,14 @@ section {
   .education-background-glow,
   .education-timeline-progress,
   .education-current-dot,
+  .education-mobile-signal,
+  .education-mobile-rail-glow,
   .animate-photo-float,
   .animate-photo-glow,
   .animate-spin-slow,
   .animate-contact-line,
   .certification-background-glow,
-  .certification-heading,
-  .education-mobile-signal {
+  .certification-heading {
     animation: none !important;
   }
 
@@ -1403,12 +1662,15 @@ section {
   }
 
   .education-card:hover,
-  .certification-card:hover {
+  .certification-card:hover,
+  .education-mobile-item:hover .education-mobile-card {
     transform: none;
   }
 
   .education-logo,
   .education-card:hover .education-logo,
+  .education-mobile-logo,
+  .education-mobile-item:hover .education-mobile-logo,
   .certification-logo,
   .certification-card:hover .certification-logo {
     transform: none;
@@ -1416,6 +1678,7 @@ section {
   }
 
   .education-card:hover .education-logo img,
+  .education-mobile-item:hover .education-mobile-logo img,
   .certification-card:hover .certification-logo img {
     transform: none;
     transition: none;

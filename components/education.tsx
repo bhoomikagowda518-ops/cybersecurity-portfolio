@@ -2,13 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import {
-  GraduationCap,
-  School,
-  BookOpen,
-  MapPin,
-  ArrowUpRight,
-} from 'lucide-react';
+import { GraduationCap, School, BookOpen } from 'lucide-react';
 
 const EDUCATION = [
   {
@@ -64,7 +58,7 @@ function EducationCard({
       },
       {
         threshold: 0.12,
-        rootMargin: '0px 0px -50px 0px',
+        rootMargin: '0px 0px -60px 0px',
       }
     );
 
@@ -87,16 +81,12 @@ function EducationCard({
         } as React.CSSProperties
       }
     >
+      {/* Hover glow */}
       <div className="education-card-glow" />
-
-      {/* Timeline connector */}
-      <div className="education-card-connector">
-        <span />
-      </div>
 
       <div className="relative flex flex-col gap-6 sm:flex-row sm:items-start">
 
-        {/* Logo */}
+        {/* Institution Logo */}
         <div className="education-logo">
           <Image
             src={education.logo}
@@ -108,11 +98,12 @@ function EducationCard({
           />
         </div>
 
-        {/* Content */}
+        {/* Main content */}
         <div className="min-w-0 flex-1">
 
           {/* Category */}
           <div className="flex items-center gap-2">
+
             <Icon
               size={14}
               strokeWidth={1.6}
@@ -122,6 +113,7 @@ function EducationCard({
             <span className="font-mono-brand text-[10px] uppercase tracking-[0.2em] text-[var(--accent-cyan)]">
               {education.type}
             </span>
+
           </div>
 
           {/* Institution */}
@@ -129,23 +121,15 @@ function EducationCard({
             {education.institution}
           </h3>
 
-          {/* Program */}
+          {/* Degree / qualification */}
           <p className="mt-2 text-sm font-medium leading-relaxed text-[var(--text-muted)] sm:text-base">
             {education.program}
           </p>
 
-          {/* Details */}
-          <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1">
-            <MapPin
-              size={12}
-              strokeWidth={1.6}
-              className="text-[var(--text-faint)]"
-            />
-
-            <span className="font-mono-brand text-xs text-[var(--text-faint)]">
-              {education.details}
-            </span>
-          </div>
+          {/* Location + year */}
+          <p className="mt-2 font-mono-brand text-xs text-[var(--text-faint)]">
+            {education.details}
+          </p>
 
           {/* Result */}
           <div className="mt-5">
@@ -153,6 +137,7 @@ function EducationCard({
               {education.result}
             </span>
           </div>
+
         </div>
 
         {/* Current */}
@@ -165,10 +150,6 @@ function EducationCard({
           </div>
         )}
 
-        {/* Small decorative arrow */}
-        <div className="education-arrow">
-          <ArrowUpRight size={15} strokeWidth={1.5} />
-        </div>
       </div>
     </article>
   );
@@ -180,19 +161,23 @@ export default function Education() {
       id="education"
       className="relative overflow-hidden border-t border-[var(--border)]"
     >
-      {/* Background atmosphere */}
+
+      {/* Background glow */}
       <div className="education-background-glow" />
 
       <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
 
         {/* Heading */}
         <div className="education-heading mb-14">
+
           <div className="flex items-center gap-3">
+
             <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
               05 — Education
             </span>
 
             <span className="h-px w-10 bg-[var(--border-strong)]" />
+
           </div>
 
           <h2 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
@@ -203,18 +188,20 @@ export default function Education() {
             The academic foundation behind my journey into computer science
             and cybersecurity.
           </p>
+
         </div>
 
         {/* Timeline */}
         <div className="relative">
 
-          {/* Timeline line */}
+          {/* Animated timeline */}
           <div className="education-timeline">
             <div className="education-timeline-progress" />
           </div>
 
           {/* Cards */}
           <div className="space-y-5">
+
             {EDUCATION.map((education, index) => (
               <EducationCard
                 key={education.institution}
@@ -222,19 +209,11 @@ export default function Education() {
                 index={index}
               />
             ))}
+
           </div>
+
         </div>
 
-        {/* Bottom decorative label */}
-        <div className="mt-8 flex items-center gap-3">
-          <span className="h-px flex-1 bg-[var(--border)]" />
-
-          <span className="font-mono-brand text-[9px] uppercase tracking-[0.2em] text-[var(--text-faint)]">
-            Foundation → Security
-          </span>
-
-          <span className="h-px flex-1 bg-[var(--border)]" />
-        </div>
       </div>
     </section>
   );
