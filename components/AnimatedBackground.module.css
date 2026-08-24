@@ -1,0 +1,92 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+/* =========================================================
+   FLOATING PARTICLES
+   ========================================================= */
+
+.particleField {
+  position: absolute;
+  inset: 0;
+}
+
+.particle {
+  position: absolute;
+  bottom: -5%;
+  border-radius: 50%;
+
+  /*
+   * Very subtle cool-white particle.
+   * No strong glow — just enough to give the background
+   * a little life.
+   */
+  background: rgba(186, 230, 253, 0.65);
+
+  box-shadow:
+    0 0 6px rgba(186, 230, 253, 0.18);
+
+  will-change: transform, opacity;
+
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* =========================================================
+   PARTICLE MOVEMENT
+   ========================================================= */
+
+@keyframes floatUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+
+  88% {
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translate3d(var(--drift), -115vh, 0);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+    opacity: 0.3;
+    bottom: 40%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  /*
+   * Keep the mobile background especially clean.
+   */
+  .particleField span:nth-child(3n) {
+    display: none;
+  }
+}

@@ -9,18 +9,14 @@
   --bg-soft: #0c0d10;
   --panel: #111217;
   --panel-hover: #171920;
-
   --border: #242731;
   --border-strong: #343844;
-
   --text: #f2f3f5;
   --text-muted: #a8afbc;
   --text-faint: #687080;
-
   --accent: #4ea8ff;
   --accent-cyan: #22d3ee;
   --status: #34d399;
-
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
@@ -75,9 +71,7 @@ body {
       rgba(255, 255, 255, 0.035) 1px,
       transparent 1px
     );
-
   background-size: 44px 44px;
-
   mask-image:
     radial-gradient(
       ellipse 80% 60% at 50% 0%,
@@ -224,9 +218,9 @@ body {
    ========================================================= */
 
 /*
-   These utilities let us establish a consistent vertical
-   rhythm without forcing every section to use identical
-   spacing.
+  These utilities let us establish a consistent vertical
+  rhythm without forcing every section to use identical
+  spacing.
 */
 
 .section-space {
@@ -246,24 +240,32 @@ body {
 @keyframes photo-float {
   0%,
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(0, -10px, 0) rotate(-0.4deg);
   }
 
   50% {
-    transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -16px, 0) rotate(0.4deg);
+  }
+
+  75% {
+    transform: translate3d(0, -8px, 0) rotate(-0.2deg);
   }
 }
 
 @keyframes photo-glow {
   0%,
   100% {
-    opacity: 0.4;
-    transform: scale(1);
+    opacity: 0.25;
+    transform: scale(0.98);
   }
 
   50% {
-    opacity: 0.65;
-    transform: scale(1.06);
+    opacity: 0.7;
+    transform: scale(1.08);
   }
 }
 
@@ -280,7 +282,7 @@ body {
 .animate-photo-float {
   animation:
     photo-float
-    6s
+    4.5s
     ease-in-out
     infinite;
 }
@@ -288,7 +290,7 @@ body {
 .animate-photo-glow {
   animation:
     photo-glow
-    5s
+    3.5s
     ease-in-out
     infinite;
 }
@@ -313,9 +315,7 @@ body {
       rgba(255, 255, 255, 0.035) 1px,
       transparent 1px
     );
-
   background-size: 48px 48px;
-
   mask-image:
     linear-gradient(
       to bottom,
@@ -330,22 +330,15 @@ body {
 
 .education-background-glow {
   position: absolute;
-
   width: 500px;
   height: 500px;
-
   top: 10%;
   right: -250px;
-
   border-radius: 9999px;
-
   background: var(--accent-cyan);
   opacity: 0.035;
-
   filter: blur(100px);
-
   pointer-events: none;
-
   animation:
     education-glow
     10s
@@ -370,24 +363,18 @@ body {
 
 .education-timeline {
   position: absolute;
-
   left: 21px;
   top: 30px;
   bottom: 30px;
-
   width: 1px;
-
   background: var(--border);
-
   overflow: hidden;
 }
 
 .education-timeline-progress {
   position: absolute;
   inset: 0;
-
   transform-origin: top;
-
   background:
     linear-gradient(
       to bottom,
@@ -395,7 +382,6 @@ body {
       var(--accent),
       var(--border)
     );
-
   animation:
     timeline-grow
     2s
@@ -420,29 +406,23 @@ body {
 .education-card {
   position: relative;
   overflow: hidden;
-
   padding: 25px;
-
   border: 1px solid var(--border-strong);
   border-radius: 15px;
-
   background:
     linear-gradient(
       135deg,
       rgba(20, 22, 29, 0.96),
       rgba(14, 15, 20, 0.96)
     );
-
   opacity: 0;
   transform: translate3d(0, 28px, 0);
-
   transition:
     opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 300ms ease,
     box-shadow 300ms ease,
-    background 300ms ease;
-
+    *background* 300ms ease;
   transition-delay: var(--education-delay);
 }
 
@@ -453,16 +433,13 @@ body {
 
 .education-card:hover {
   transform: translate3d(0, -5px, 0);
-
   border-color: rgba(52, 216, 238, 0.38);
-
   background:
     linear-gradient(
       135deg,
       rgba(23, 26, 34, 0.98),
       rgba(16, 18, 24, 0.98)
     );
-
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.25),
     0 0 35px rgba(34, 211, 238, 0.055);
@@ -474,23 +451,15 @@ body {
 
 .education-card-glow {
   position: absolute;
-
   width: 200px;
   height: 200px;
-
   top: -100px;
   right: -100px;
-
   border-radius: 9999px;
-
   background: var(--accent-cyan);
-
   opacity: 0;
-
   filter: blur(65px);
-
   pointer-events: none;
-
   transition:
     opacity 500ms ease,
     transform 700ms ease;
@@ -508,22 +477,16 @@ body {
 .education-logo {
   position: relative;
   z-index: 2;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 76px;
   height: 76px;
   min-width: 76px;
-
   border: 1px solid var(--border-strong);
   border-radius: 14px;
-
   background: #0b0d11;
-
   overflow: hidden;
-
   transition:
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 300ms ease,
@@ -533,13 +496,10 @@ body {
 
 .education-logo img {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: contain;
   padding: 7px;
-
   transition:
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
     filter 300ms ease;
@@ -547,11 +507,8 @@ body {
 
 .education-card:hover .education-logo {
   transform: translate3d(0, -3px, 0);
-
   border-color: var(--accent-cyan);
-
   background: #10131a;
-
   box-shadow:
     0 0 22px rgba(34, 211, 238, 0.1),
     0 0 40px rgba(34, 211, 238, 0.035);
@@ -568,19 +525,13 @@ body {
 .education-result {
   display: inline-flex;
   align-items: center;
-
   padding: 8px 12px;
-
   border: 1px solid var(--border-strong);
   border-radius: 7px;
-
   background: #0c0e12;
-
   font-family: var(--font-mono);
   font-size: 11px;
-
   color: var(--text);
-
   transition:
     border-color 300ms ease,
     background-color 300ms ease,
@@ -590,11 +541,8 @@ body {
 
 .education-card:hover .education-result {
   border-color: rgba(34, 211, 238, 0.45);
-
   background: rgba(34, 211, 238, 0.05);
-
   transform: translateX(3px);
-
   box-shadow:
     0 0 18px rgba(34, 211, 238, 0.04);
 }
@@ -607,35 +555,25 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
   padding: 6px 11px;
-
   border: 1px solid var(--border-strong);
   border-radius: 9999px;
-
   background: rgba(52, 211, 153, 0.035);
-
   font-family: var(--font-mono);
   font-size: 10px;
-
   text-transform: uppercase;
   letter-spacing: 0.08em;
-
   color: var(--text-muted);
 }
 
 .education-current-dot {
   width: 6px;
   height: 6px;
-
   border-radius: 9999px;
-
   background: var(--status);
-
   box-shadow:
     0 0 0 0
     var(--status);
-
   animation:
     current-pulse
     2.5s
@@ -669,22 +607,15 @@ body {
 
 .certification-background-glow {
   position: absolute;
-
   width: 500px;
   height: 500px;
-
   top: 15%;
   left: -260px;
-
   border-radius: 9999px;
-
   background: var(--accent-cyan);
   opacity: 0.03;
-
   filter: blur(110px);
-
   pointer-events: none;
-
   animation:
     certification-glow
     12s
@@ -710,7 +641,6 @@ body {
 .certification-heading {
   opacity: 0;
   transform: translate3d(0, 16px, 0);
-
   animation:
     certification-heading-in
     800ms
@@ -732,31 +662,24 @@ body {
 .certification-card {
   position: relative;
   overflow: hidden;
-
   min-height: 370px;
-
   padding: 28px;
-
   border: 1px solid var(--border-strong);
   border-radius: 15px;
-
   background:
     linear-gradient(
       135deg,
       rgba(20, 22, 29, 0.96),
       rgba(14, 15, 20, 0.96)
     );
-
   opacity: 0;
   transform: translate3d(0, 26px, 0);
-
   transition:
     opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 300ms ease,
     box-shadow 300ms ease,
-    background 300ms ease;
-
+    *background* 300ms ease;
   transition-delay: var(--certification-delay);
 }
 
@@ -767,16 +690,13 @@ body {
 
 .certification-card:hover {
   transform: translate3d(0, -6px, 0);
-
   border-color: rgba(52, 216, 238, 0.4);
-
   background:
     linear-gradient(
       135deg,
       rgba(23, 26, 34, 0.98),
       rgba(16, 18, 24, 0.98)
     );
-
   box-shadow:
     0 22px 55px rgba(0, 0, 0, 0.26),
     0 0 38px rgba(34, 211, 238, 0.055);
@@ -788,13 +708,10 @@ body {
 
 .certification-card-line {
   position: absolute;
-
   top: 0;
   left: 24px;
   right: 24px;
-
   height: 1px;
-
   background:
     linear-gradient(
       to right,
@@ -802,11 +719,8 @@ body {
       var(--accent-cyan),
       transparent
     );
-
   opacity: 0.3;
-
   transform: scaleX(0.75);
-
   transition:
     opacity 300ms ease,
     transform 500ms ease;
@@ -823,23 +737,15 @@ body {
 
 .certification-card-glow {
   position: absolute;
-
   width: 220px;
   height: 220px;
-
   top: -120px;
   right: -100px;
-
   border-radius: 9999px;
-
   background: var(--accent-cyan);
-
   opacity: 0;
-
   filter: blur(70px);
-
   pointer-events: none;
-
   transition:
     opacity 500ms ease,
     transform 700ms ease;
@@ -857,22 +763,16 @@ body {
 .certification-logo {
   position: relative;
   z-index: 2;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 96px;
   height: 96px;
   min-width: 96px;
-
   border: 1px solid var(--border);
   border-radius: 14px;
-
   background: #ffffff;
-
   overflow: hidden;
-
   transition:
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 300ms ease,
@@ -881,26 +781,19 @@ body {
 
 .certification-logo img {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: contain;
-
   padding: 10px;
-
   opacity: 1;
   filter: none;
-
   transition:
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .certification-card:hover .certification-logo {
   transform: translate3d(0, -4px, 0);
-
   border-color: rgba(34, 211, 238, 0.55);
-
   box-shadow:
     0 0 25px rgba(34, 211, 238, 0.12),
     0 0 45px rgba(34, 211, 238, 0.04);
@@ -933,19 +826,13 @@ body {
 .certification-year {
   display: inline-flex;
   align-items: center;
-
   padding: 6px 10px;
-
   border: 1px solid var(--border);
   border-radius: 6px;
-
   background: rgba(255, 255, 255, 0.025);
-
   color: var(--text-faint);
-
   font-family: var(--font-mono);
   font-size: 10px;
-
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -1018,7 +905,6 @@ body {
   }
 
   /* Certification */
-
   .certification-card {
     min-height: auto;
     padding: 22px;
@@ -1121,4 +1007,35 @@ body {
     opacity: 1;
     transform: none;
   }
+}
+
+/* =========================================================
+   GLOBAL ANIMATED BACKGROUND VISIBILITY
+   ========================================================= */
+
+main,
+section {
+  position: relative;
+  background-color: transparent;
+}
+@keyframes photo-shine {
+  0%,
+  65% {
+    transform: translateX(-120%) rotate(12deg);
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  90%,
+  100% {
+    transform: translateX(120%) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+.animate-photo-shine {
+  animation: photo-shine 7s ease-in-out infinite;
 }

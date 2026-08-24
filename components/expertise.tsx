@@ -19,7 +19,7 @@ const CONFIG = [
   {
     icon: Crosshair,
     color: '#f87171',
-    soft: 'rgba(248,113,113,0.08)',
+    soft: 'rgba(248,113,113,0.07)',
     depth: 'EXPLORING',
     focus: 'CTFs · Labs · Adversary Techniques',
     label: 'ATTACK',
@@ -27,7 +27,7 @@ const CONFIG = [
   {
     icon: Radar,
     color: '#22d3ee',
-    soft: 'rgba(34,211,238,0.08)',
+    soft: 'rgba(34,211,238,0.07)',
     depth: 'BUILDING',
     focus: 'SIEM · MITRE ATT&CK · Detection',
     label: 'DETECT',
@@ -35,7 +35,7 @@ const CONFIG = [
   {
     icon: KeyRound,
     color: '#a78bfa',
-    soft: 'rgba(167,139,250,0.08)',
+    soft: 'rgba(167,139,250,0.07)',
     depth: 'APPLYING',
     focus: 'Encryption · Hashing · Key Management',
     label: 'PROTECT',
@@ -43,7 +43,7 @@ const CONFIG = [
   {
     icon: Network,
     color: '#60a5fa',
-    soft: 'rgba(96,165,250,0.08)',
+    soft: 'rgba(96,165,250,0.07)',
     depth: 'BUILDING',
     focus: 'Protocols · Traffic · Network Defense',
     label: 'CONNECT',
@@ -51,7 +51,7 @@ const CONFIG = [
   {
     icon: Lock,
     color: '#34d399',
-    soft: 'rgba(52,211,153,0.08)',
+    soft: 'rgba(52,211,153,0.07)',
     depth: 'EXPLORING',
     focus: 'Linux · Permissions · Hardening',
     label: 'HARDEN',
@@ -59,7 +59,7 @@ const CONFIG = [
   {
     icon: FileSearch,
     color: '#fbbf24',
-    soft: 'rgba(251,191,36,0.08)',
+    soft: 'rgba(251,191,36,0.07)',
     depth: 'EXPLORING',
     focus: 'Web Vulnerabilities · Testing · Labs',
     label: 'TEST',
@@ -86,21 +86,20 @@ export default function Expertise() {
   return (
     <section
       id="expertise"
-      className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--bg)]"
+      className="relative overflow-hidden border-t border-[var(--border)] bg-transparent"
     >
       {/* =====================================================
-          BACKGROUND ATMOSPHERE
+          VERY SUBTLE SECTION ATMOSPHERE
           ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent-cyan)]/[0.018] blur-[150px]" />
-
         <div
-          className="
-            absolute inset-0 opacity-[0.014]
-            [background-image:linear-gradient(var(--text)_1px,transparent_1px),linear-gradient(90deg,var(--text)_1px,transparent_1px)]
-            [background-size:80px_80px]
-          "
+          className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]"
+          style={{
+            backgroundColor: 'var(--accent-cyan)',
+            opacity: activeIndex !== null ? 0.025 : 0.012,
+            transition: 'opacity 700ms ease',
+          }}
         />
       </div>
 
@@ -109,48 +108,43 @@ export default function Expertise() {
         {/* =====================================================
             HEADING
             ===================================================== */}
-<Reveal>
-  <div className="flex items-center gap-3">
-    <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
-      03 — Expertise
-    </span>
 
-    <span className="h-px w-10 bg-[var(--border-strong)]" />
-  </div>
+        <Reveal>
+          <div className="flex items-center gap-3">
+            <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
+              03 — Expertise
+            </span>
 
-  <div className="mt-6">
-    <SectionHeading
-      eyebrow=""
-      title="Where security meets practice"
-      description="The areas I'm exploring through projects, labs, experimentation, and hands-on security work."
-    />
-  </div>
-</Reveal>
+            <span className="h-px w-10 bg-[var(--border-strong)]" />
+          </div>
+
+          <div className="mt-6">
+            <SectionHeading
+              eyebrow=""
+              title="Where security meets practice"
+              description="The areas I'm exploring through projects, labs, experimentation, and hands-on security work."
+            />
+          </div>
+        </Reveal>
 
         {/* =====================================================
             DESKTOP NETWORK
             ===================================================== */}
 
         <Reveal delay={100}>
-          <div className="relative mt-16 hidden h-[650px] overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--panel)] md:block">
+          <div className="relative mt-16 hidden h-[650px] overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--panel)]/65 backdrop-blur-[2px] md:block">
 
-            {/* Subtle grid */}
-            <div
-              className="
-                pointer-events-none absolute inset-0 opacity-[0.018]
-                [background-image:linear-gradient(var(--text)_1px,transparent_1px),linear-gradient(90deg,var(--text)_1px,transparent_1px)]
-                [background-size:52px_52px]
-              "
-            />
+            {/* =================================================
+                CENTER ATMOSPHERE
+                ================================================= */}
 
-            {/* Center atmosphere */}
             <div
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px] transition-all duration-700"
+              className="pointer-events-none absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[110px] transition-all duration-700"
               style={{
                 backgroundColor:
                   activeConfig?.color ?? '#22d3ee',
                 opacity:
-                  activeIndex !== null ? 0.055 : 0.018,
+                  activeIndex !== null ? 0.045 : 0.012,
               }}
             />
 
@@ -190,7 +184,6 @@ export default function Expertise() {
 
                 return (
                   <g key={i}>
-
                     {/* Connection */}
                     <line
                       x1={x1}
@@ -198,20 +191,20 @@ export default function Expertise() {
                       x2={x2}
                       y2={y2}
                       stroke={active ? color : '#353943'}
-                      strokeWidth={active ? 1.5 : 0.8}
-                      strokeOpacity={active ? 0.72 : 0.38}
+                      strokeWidth={active ? 1.5 : 0.65}
+                      strokeOpacity={active ? 0.7 : 0.28}
                       className="transition-all duration-500"
                     />
 
                     {/* Quiet signal pulse */}
                     <circle
-                      r={active ? 3 : 1.7}
+                      r={active ? 3 : 1.5}
                       fill={active ? color : '#22d3ee'}
-                      opacity={active ? 0.85 : 0.18}
+                      opacity={active ? 0.8 : 0.14}
                       filter="url(#expertise-pulse-glow)"
                     >
                       <animateMotion
-                        dur={active ? '1.8s' : '5s'}
+                        dur={active ? '1.8s' : '6s'}
                         repeatCount="indefinite"
                         path={`M ${x1} ${y1} L ${x2} ${y2}`}
                       />
@@ -222,7 +215,7 @@ export default function Expertise() {
                       <circle
                         r="1.8"
                         fill={color}
-                        opacity="0.35"
+                        opacity="0.3"
                         filter="url(#expertise-pulse-glow)"
                       >
                         <animateMotion
@@ -244,7 +237,7 @@ export default function Expertise() {
                 fill="none"
                 stroke={activeConfig?.color ?? '#22d3ee'}
                 strokeOpacity={
-                  activeIndex !== null ? 0.14 : 0.055
+                  activeIndex !== null ? 0.13 : 0.045
                 }
                 strokeDasharray="3 10"
                 className="animate-spin-slow"
@@ -260,7 +253,7 @@ export default function Expertise() {
                 r="150"
                 fill="none"
                 stroke="#22d3ee"
-                strokeOpacity="0.025"
+                strokeOpacity="0.018"
                 strokeDasharray="2 14"
               />
             </svg>
@@ -273,12 +266,12 @@ export default function Expertise() {
 
               {/* Minimal glow */}
               <div
-                className="absolute inset-[-55px] rounded-full blur-[55px] transition-all duration-700"
+                className="absolute inset-[-50px] rounded-full blur-[55px] transition-all duration-700"
                 style={{
                   backgroundColor:
                     activeConfig?.color ?? '#22d3ee',
                   opacity:
-                    activeIndex !== null ? 0.11 : 0.035,
+                    activeIndex !== null ? 0.08 : 0.018,
                 }}
               />
 
@@ -287,22 +280,22 @@ export default function Expertise() {
                 className="absolute inset-[-16px] animate-spin-slow rounded-full border border-dashed"
                 style={{
                   borderColor: activeConfig
-                    ? `${activeConfig.color}30`
-                    : 'rgba(34,211,238,0.09)',
+                    ? `${activeConfig.color}28`
+                    : 'rgba(34,211,238,0.07)',
                 }}
               />
 
               {/* Main node */}
               <div
-                className="relative flex h-44 w-44 items-center justify-center rounded-full border bg-[var(--bg)] transition-all duration-700"
+                className="relative flex h-44 w-44 items-center justify-center rounded-full border bg-[var(--bg)]/90 transition-all duration-700"
                 style={{
                   borderColor: activeConfig
-                    ? `${activeConfig.color}42`
-                    : 'rgba(34,211,238,0.17)',
+                    ? `${activeConfig.color}38`
+                    : 'rgba(34,211,238,0.13)',
 
                   boxShadow: activeConfig
-                    ? `0 0 70px ${activeConfig.color}0c`
-                    : '0 0 60px rgba(34,211,238,0.035)',
+                    ? `0 0 60px ${activeConfig.color}08`
+                    : '0 0 50px rgba(34,211,238,0.025)',
                 }}
               >
 
@@ -311,8 +304,8 @@ export default function Expertise() {
                   className="absolute inset-4 rounded-full border transition-all duration-500"
                   style={{
                     borderColor: activeConfig
-                      ? `${activeConfig.color}25`
-                      : 'rgba(42,45,54,0.8)',
+                      ? `${activeConfig.color}20`
+                      : 'rgba(42,45,54,0.65)',
                   }}
                 />
 
@@ -327,11 +320,11 @@ export default function Expertise() {
 
                       backgroundColor:
                         activeConfig?.soft ??
-                        'rgba(34,211,238,0.045)',
+                        'rgba(34,211,238,0.035)',
 
                       borderColor: activeConfig
-                        ? `${activeConfig.color}32`
-                        : 'rgba(34,211,238,0.14)',
+                        ? `${activeConfig.color}28`
+                        : 'rgba(34,211,238,0.11)',
                     }}
                   >
                     <ActiveIcon
@@ -396,18 +389,18 @@ export default function Expertise() {
                       className="
                         relative overflow-hidden rounded-2xl
                         border border-[var(--border)]
-                        bg-[var(--bg)]/95
+                        bg-[var(--bg)]/90
                         p-4 backdrop-blur-sm
                         transition-all duration-500
                         hover:-translate-y-1
                       "
                       style={{
                         borderColor: isActive
-                          ? `${config.color}48`
+                          ? `${config.color}42`
                           : undefined,
 
                         boxShadow: isActive
-                          ? `0 16px 45px rgba(0,0,0,0.24), 0 0 28px ${config.color}08`
+                          ? `0 16px 45px rgba(0,0,0,0.22), 0 0 25px ${config.color}06`
                           : undefined,
                       }}
                     >
@@ -418,7 +411,7 @@ export default function Expertise() {
                         style={{
                           backgroundColor:
                             config.color,
-                          opacity: isActive ? 0.15 : 0,
+                          opacity: isActive ? 0.11 : 0,
                         }}
                       />
 
@@ -433,7 +426,7 @@ export default function Expertise() {
                             ? 'scaleX(1)'
                             : 'scaleX(0.22)',
 
-                          opacity: isActive ? 0.9 : 0.35,
+                          opacity: isActive ? 0.85 : 0.28,
                         }}
                       />
 
@@ -447,7 +440,7 @@ export default function Expertise() {
                             backgroundColor:
                               config.soft,
                             borderColor:
-                              `${config.color}25`,
+                              `${config.color}20`,
 
                             transform: isActive
                               ? 'translateY(-1px) scale(1.04)'
@@ -506,8 +499,8 @@ export default function Expertise() {
                               config.color,
 
                             opacity: isActive
-                              ? 0.85
-                              : 0.35,
+                              ? 0.8
+                              : 0.3,
                           }}
                         />
                       </div>
@@ -523,14 +516,14 @@ export default function Expertise() {
                 FOOTER
                 ================================================= */}
 
-            <div className="absolute bottom-0 left-0 right-0 border-t border-[var(--border)] bg-[var(--bg)]/75 px-6 py-3.5 backdrop-blur-sm">
+            <div className="absolute bottom-0 left-0 right-0 border-t border-[var(--border)] bg-[var(--bg)]/70 px-6 py-3.5 backdrop-blur-sm">
 
               <div className="flex items-center justify-between">
 
                 <div className="flex items-center gap-2">
 
                   <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute h-full w-full animate-ping rounded-full bg-[var(--status)] opacity-30" />
+                    <span className="absolute h-full w-full animate-ping rounded-full bg-[var(--status)] opacity-25" />
 
                     <span className="relative h-1.5 w-1.5 rounded-full bg-[var(--status)]" />
                   </span>
@@ -561,9 +554,9 @@ export default function Expertise() {
             {/* Mobile center node */}
             <div className="relative flex flex-col items-center">
 
-              <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-[var(--accent-cyan)]/20 bg-[var(--panel)] shadow-[0_0_55px_rgba(34,211,238,0.045)]">
+              <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-[var(--accent-cyan)]/15 bg-[var(--panel)]/90 shadow-[0_0_45px_rgba(34,211,238,0.025)]">
 
-                <div className="absolute inset-[-8px] animate-spin-slow rounded-full border border-dashed border-[var(--accent-cyan)]/10" />
+                <div className="absolute inset-[-8px] animate-spin-slow rounded-full border border-dashed border-[var(--accent-cyan)]/08" />
 
                 <div className="text-center">
 
@@ -589,7 +582,7 @@ export default function Expertise() {
 
                 <div className="absolute bottom-10 left-[22px] top-0 w-px bg-[var(--border)]" />
 
-                <div className="absolute bottom-10 left-[22px] top-0 w-px bg-gradient-to-b from-[var(--accent-cyan)]/50 via-[var(--accent-cyan)]/15 to-transparent" />
+                <div className="absolute bottom-10 left-[22px] top-0 w-px bg-gradient-to-b from-[var(--accent-cyan)]/35 via-[var(--accent-cyan)]/10 to-transparent" />
 
                 <div className="relative space-y-3">
 
@@ -626,8 +619,8 @@ export default function Expertise() {
 
                               borderColor:
                                 isActive
-                                  ? `${config.color}55`
-                                  : `${config.color}22`,
+                                  ? `${config.color}48`
+                                  : `${config.color}1c`,
 
                               backgroundColor:
                                 isActive
@@ -648,11 +641,11 @@ export default function Expertise() {
 
                           {/* Card */}
                           <div
-                            className="flex-1 rounded-xl border bg-[var(--panel)] p-4 transition-all duration-300"
+                            className="flex-1 rounded-xl border bg-[var(--panel)]/90 p-4 transition-all duration-300"
                             style={{
                               borderColor:
                                 isActive
-                                  ? `${config.color}38`
+                                  ? `${config.color}32`
                                   : 'var(--border)',
                             }}
                           >
