@@ -35,7 +35,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-x-hidden border-t border-[var(--border)] py-24 sm:py-32"
+      className="relative w-full min-w-0 overflow-x-hidden border-t border-[var(--border)] py-24 sm:py-32"
     >
       {/* =====================================================
           BACKGROUND
@@ -49,7 +49,7 @@ export default function Contact() {
         <div className="absolute inset-0 opacity-[0.16] hero-grid" />
       </div>
 
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">
+      <div className="mx-auto w-full max-w-6xl min-w-0 px-5 sm:px-6">
 
         {/* =====================================================
             HEADING
@@ -83,17 +83,17 @@ export default function Contact() {
             CONTACT GRID
             ===================================================== */}
 
-        <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10">
+        <div className="grid min-w-0 items-stretch gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10">
 
           {/* ===================================================
               LEFT — CONTACT INFO
               =================================================== */}
 
-          <Reveal className="h-full">
+          <Reveal className="h-full min-w-0">
             <div
               className="
                 contact-panel
-                group relative flex h-full min-h-[620px] flex-col
+                group relative flex h-full min-h-[620px] min-w-0 w-full flex-col
                 overflow-hidden rounded-2xl
                 border border-[var(--border-strong)]
                 bg-[var(--panel)]
@@ -129,11 +129,11 @@ export default function Contact() {
 
               <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-bl-[90px] border-b border-l border-[var(--border)] opacity-60" />
 
-              <div className="relative flex h-full flex-col">
+              <div className="relative flex h-full min-w-0 flex-col">
 
                 {/* Header */}
 
-                <div className="mb-8">
+                <div className="mb-8 min-w-0">
                   <div className="flex items-center justify-between gap-4">
 
                     <span className="font-mono-brand text-[10px] uppercase tracking-[0.2em] text-[var(--accent-cyan)]">
@@ -162,18 +162,19 @@ export default function Contact() {
 
                 {/* Availability status */}
 
-                <div className="mb-7 rounded-xl border border-[var(--border)] bg-[var(--bg-soft)] p-4">
+                <div className="mb-7 min-w-0 rounded-xl border border-[var(--border)] bg-[var(--bg-soft)] p-4">
 
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex min-w-0 items-center justify-between gap-4">
 
                     <div className="flex min-w-0 items-center gap-3">
 
                       <span className="relative flex h-2.5 w-2.5 shrink-0">
                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--status)] opacity-40" />
+
                         <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[var(--status)] shadow-[0_0_10px_rgba(52,211,153,0.4)]" />
                       </span>
 
-                      <span className="font-mono-brand text-[11px] text-[var(--text-muted)]">
+                      <span className="truncate font-mono-brand text-[11px] text-[var(--text-muted)]">
                         Available for opportunities
                       </span>
 
@@ -189,7 +190,7 @@ export default function Contact() {
 
                 {/* Contact links */}
 
-                <div className="space-y-3">
+                <div className="min-w-0 space-y-3">
 
                   {/* Email */}
 
@@ -210,13 +211,10 @@ export default function Contact() {
                     "
                   >
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--border-strong)] bg-[var(--panel)] text-[var(--text-muted)] transition-all duration-300 group-hover/link:border-[var(--accent-cyan)]/40 group-hover/link:text-[var(--accent-cyan)]">
-
                       <Mail size={17} strokeWidth={1.7} />
-
                     </span>
 
                     <span className="min-w-0 flex-1">
-
                       <span className="block font-mono-brand text-[9px] uppercase tracking-[0.16em] text-[var(--text-faint)]">
                         Email
                       </span>
@@ -224,14 +222,12 @@ export default function Contact() {
                       <span className="mt-1 block truncate text-sm font-medium text-[var(--text)]">
                         {LINKS.email}
                       </span>
-
                     </span>
 
                     <ArrowUpRight
                       size={15}
                       className="shrink-0 text-[var(--text-faint)] transition-all duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-[var(--accent-cyan)]"
                     />
-
                   </a>
 
                   {/* LinkedIn */}
@@ -255,13 +251,10 @@ export default function Contact() {
                     "
                   >
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--border-strong)] bg-[var(--panel)] text-[var(--text-muted)] transition-all duration-300 group-hover/link:border-[var(--accent-cyan)]/40 group-hover/link:text-[var(--accent-cyan)]">
-
                       <LinkedinIcon />
-
                     </span>
 
                     <span className="min-w-0 flex-1">
-
                       <span className="block font-mono-brand text-[9px] uppercase tracking-[0.16em] text-[var(--text-faint)]">
                         LinkedIn
                       </span>
@@ -269,28 +262,25 @@ export default function Contact() {
                       <span className="mt-1 block text-sm font-medium text-[var(--text)]">
                         Connect with me
                       </span>
-
                     </span>
 
                     <ArrowUpRight
                       size={15}
                       className="shrink-0 text-[var(--text-faint)] transition-all duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-[var(--accent-cyan)]"
                     />
-
                   </a>
 
                 </div>
 
                 {/* Location */}
 
-                <div className="mt-5 flex items-center gap-3 rounded-xl border border-transparent p-1">
+                <div className="mt-5 flex min-w-0 items-center gap-3 rounded-xl border border-transparent p-1">
 
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--border-strong)] bg-[var(--bg-soft)] text-[var(--text-muted)]">
                     <MapPin size={17} strokeWidth={1.7} />
                   </span>
 
                   <span className="min-w-0">
-
                     <span className="block font-mono-brand text-[9px] uppercase tracking-[0.16em] text-[var(--text-faint)]">
                       Location
                     </span>
@@ -298,7 +288,6 @@ export default function Contact() {
                     <span className="mt-1 block truncate text-sm font-medium text-[var(--text)]">
                       {SITE.location}
                     </span>
-
                   </span>
 
                 </div>
@@ -309,21 +298,21 @@ export default function Contact() {
 
                 {/* Status terminal */}
 
-                <div className="mt-10 overflow-hidden rounded-xl border border-[var(--border)] bg-[#090a0d]">
+                <div className="mt-10 min-w-0 overflow-hidden rounded-xl border border-[var(--border)] bg-[#090a0d]">
 
                   <div className="flex items-center justify-between border-b border-[var(--border)] px-4 py-3">
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex min-w-0 items-center gap-2">
 
-                      <span className="h-2 w-2 rounded-full bg-[var(--status)] shadow-[0_0_8px_rgba(52,211,153,0.35)]" />
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-[var(--status)] shadow-[0_0_8px_rgba(52,211,153,0.35)]" />
 
-                      <span className="font-mono-brand text-[9px] uppercase tracking-[0.16em] text-[var(--text-faint)]">
+                      <span className="truncate font-mono-brand text-[9px] uppercase tracking-[0.16em] text-[var(--text-faint)]">
                         connection.status
                       </span>
 
                     </div>
 
-                    <span className="font-mono-brand text-[9px] text-[var(--text-faint)]">
+                    <span className="shrink-0 font-mono-brand text-[9px] text-[var(--text-faint)]">
                       v1.0
                     </span>
 
@@ -364,12 +353,12 @@ export default function Contact() {
 
           <Reveal
             delay={120}
-            className="h-full"
+            className="h-full min-w-0"
           >
             <div
               className="
                 contact-panel
-                relative flex h-full min-h-[620px] w-full
+                relative flex h-full min-h-[620px] min-w-0 w-full
                 flex-col
                 overflow-hidden rounded-2xl
                 border border-[var(--border-strong)]
@@ -403,11 +392,11 @@ export default function Contact() {
               <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/[0.025]" />
 
               {!submitted ? (
-                <div className="relative flex h-full flex-col">
+                <div className="relative flex h-full min-w-0 flex-col">
 
                   {/* Form heading */}
 
-                  <div className="mb-8 flex items-start justify-between gap-4">
+                  <div className="mb-8 flex min-w-0 items-start justify-between gap-4">
 
                     <div className="min-w-0">
 
@@ -439,16 +428,16 @@ export default function Contact() {
 
                   <form
                     onSubmit={handleSubmit}
-                    className="flex flex-1 flex-col"
+                    className="flex min-w-0 flex-1 flex-col"
                   >
 
-                    <div className="space-y-5">
+                    <div className="min-w-0 space-y-5">
 
                       {/* Name + Email */}
 
-                      <div className="grid gap-5 sm:grid-cols-2">
+                      <div className="grid min-w-0 gap-5 sm:grid-cols-2">
 
-                        <div>
+                        <div className="min-w-0">
                           <label
                             htmlFor="contact-name"
                             className="mb-2 block font-mono-brand text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--text-muted)]"
@@ -464,7 +453,7 @@ export default function Contact() {
                             placeholder="Lisa Morgan"
                             className="
                               contact-input
-                              box-border w-full
+                              box-border block w-full min-w-0
                               rounded-lg
                               border border-[var(--border-strong)]
                               bg-[var(--bg-soft)]
@@ -483,7 +472,7 @@ export default function Contact() {
                           />
                         </div>
 
-                        <div>
+                        <div className="min-w-0">
                           <label
                             htmlFor="contact-email"
                             className="mb-2 block font-mono-brand text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--text-muted)]"
@@ -499,7 +488,7 @@ export default function Contact() {
                             placeholder="lisa@example.com"
                             className="
                               contact-input
-                              box-border w-full
+                              box-border block w-full min-w-0
                               rounded-lg
                               border border-[var(--border-strong)]
                               bg-[var(--bg-soft)]
@@ -522,7 +511,7 @@ export default function Contact() {
 
                       {/* Subject */}
 
-                      <div>
+                      <div className="min-w-0">
                         <label
                           htmlFor="contact-subject"
                           className="mb-2 block font-mono-brand text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--text-muted)]"
@@ -538,7 +527,7 @@ export default function Contact() {
                           placeholder="Internship opportunity"
                           className="
                             contact-input
-                            box-border w-full
+                            box-border block w-full min-w-0
                             rounded-lg
                             border border-[var(--border-strong)]
                             bg-[var(--bg-soft)]
@@ -559,7 +548,7 @@ export default function Contact() {
 
                       {/* Message */}
 
-                      <div>
+                      <div className="min-w-0">
                         <label
                           htmlFor="contact-message"
                           className="mb-2 block font-mono-brand text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--text-muted)]"
@@ -576,7 +565,7 @@ export default function Contact() {
                           placeholder="Hi Bhoomika, I came across your portfolio and wanted to discuss..."
                           className="
                             contact-input
-                            box-border w-full
+                            box-border block w-full min-w-0
                             resize-none
                             rounded-lg
                             border border-[var(--border-strong)]
@@ -601,7 +590,7 @@ export default function Contact() {
 
                     {/* Bottom */}
 
-                    <div className="mt-auto flex flex-col gap-4 pt-8 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="mt-auto flex min-w-0 flex-col gap-4 pt-8 sm:flex-row sm:items-center sm:justify-between">
 
                       <p className="max-w-xs text-xs leading-relaxed text-[var(--text-faint)]">
                         Your message will be handled privately and used only
@@ -611,7 +600,7 @@ export default function Contact() {
                       <button
                         type="submit"
                         className="
-                          group inline-flex shrink-0
+                          group inline-flex w-full shrink-0
                           items-center justify-center gap-2
                           rounded-lg
                           bg-[var(--text)]
@@ -624,6 +613,7 @@ export default function Contact() {
                           hover:shadow-lg
                           hover:shadow-[var(--accent-cyan)]/15
                           active:translate-y-0
+                          sm:w-auto
                         "
                       >
                         Send message
@@ -645,7 +635,7 @@ export default function Contact() {
                    SUCCESS STATE
                    ================================================= */
 
-                <div className="flex min-h-[500px] flex-1 flex-col items-center justify-center text-center">
+                <div className="flex min-h-[500px] min-w-0 flex-1 flex-col items-center justify-center text-center">
 
                   <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[var(--status)]/30 bg-[var(--status)]/10 shadow-[0_0_35px_rgba(52,211,153,0.08)]">
 
@@ -688,7 +678,7 @@ export default function Contact() {
 
         <Reveal delay={180}>
 
-          <div className="mt-12 flex flex-col gap-3 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-12 flex min-w-0 flex-col gap-3 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
 
             <p className="font-mono-brand text-[10px] uppercase tracking-[0.16em] text-[var(--text-faint)]">
               {SITE.name} / Cybersecurity
