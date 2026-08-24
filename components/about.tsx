@@ -61,7 +61,7 @@ export default function About() {
             <SectionHeading
               eyebrow=""
               title="Understanding what happens beneath the surface"
-              description="I’m a Computer Science Engineering student focused on cybersecurity, learning by building systems, experimenting, and understanding how things work."
+              description="Exploring cybersecurity through systems, experimentation, and hands-on work."
             />
           </div>
         </Reveal>
@@ -83,56 +83,20 @@ export default function About() {
 
               <div className="absolute -left-4 top-1 h-[calc(100%-4px)] w-px bg-gradient-to-b from-[var(--accent-cyan)]/40 via-[var(--border)] to-transparent sm:-left-6" />
 
-              <p className="text-base leading-[1.8] text-[var(--text)] sm:text-lg">
-                I&apos;m a Computer Science Engineering student specializing
-                in{' '}
-                <span className="text-[var(--accent-cyan)]">
-                  Cybersecurity
-                </span>
-                , interested in how systems work, where vulnerabilities come
-                from, and how they can be secured.
-              </p>
+              <div className="space-y-6 pl-1 sm:pl-0">
 
-              <p className="mt-6 text-sm leading-[1.85] text-[var(--text-muted)] sm:text-base">
-                I prefer learning by building rather than just studying
-                concepts. Right now, I&apos;m developing an enterprise-style
-                SIEM platform while strengthening my foundations in Linux,
-                networking, web security, and security engineering.
-              </p>
+                <p className="text-base leading-[1.8] text-[var(--text)] sm:text-lg">
+                  I&apos;m interested in how systems work beneath the
+                  surface, how networks communicate, where vulnerabilities
+                  come from, and what it takes to make technology more
+                  secure.
+                </p>
 
-              {/* Metadata */}
-
-              <div className="mt-9 grid grid-cols-2 gap-y-6 border-t border-[var(--border)] pt-6 sm:grid-cols-3 sm:gap-y-0">
-
-                <div>
-                  <p className="font-mono-brand text-[9px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
-                    Focus
-                  </p>
-
-                  <p className="mt-1.5 text-sm text-[var(--text)]">
-                    Cybersecurity
-                  </p>
-                </div>
-
-                <div className="sm:border-l sm:border-[var(--border)] sm:pl-6">
-                  <p className="font-mono-brand text-[9px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
-                    Building
-                  </p>
-
-                  <p className="mt-1.5 text-sm text-[var(--text)]">
-                    Enterprise SIEM
-                  </p>
-                </div>
-
-                <div className="col-span-2 sm:col-span-1 sm:border-l sm:border-[var(--border)] sm:pl-6">
-                  <p className="font-mono-brand text-[9px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
-                    Graduation
-                  </p>
-
-                  <p className="mt-1.5 text-sm text-[var(--text)]">
-                    2029
-                  </p>
-                </div>
+                <p className="text-sm leading-[1.85] text-[var(--text-muted)] sm:text-base">
+                  I learn by getting my hands on things. I study the
+                  fundamentals, build something with them, test what I built,
+                  break it, understand why it failed, and improve it.
+                </p>
 
               </div>
             </div>
@@ -143,9 +107,9 @@ export default function About() {
               =================================================== */}
 
           <Reveal delay={160}>
-            <div className="relative">
+            <div className="relative lg:pt-1">
 
-              <div className="mb-6 flex items-center justify-between">
+              <div className="mb-7 flex items-center justify-between">
                 <span className="font-mono-brand text-[10px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
                   How I learn
                 </span>
@@ -180,7 +144,6 @@ export default function About() {
                       {/* Content */}
 
                       <div className="min-w-0 pt-0.5">
-
                         <h3 className="text-lg font-medium tracking-[-0.02em] text-[var(--text)] transition-colors duration-300 group-hover:text-[var(--accent-cyan)] sm:text-xl">
                           {step.title}
                         </h3>
@@ -188,8 +151,8 @@ export default function About() {
                         <p className="mt-1 text-sm leading-relaxed text-[var(--text-muted)]">
                           {step.description}
                         </p>
-
                       </div>
+
                     </div>
                   ))}
 
@@ -199,33 +162,6 @@ export default function About() {
           </Reveal>
 
         </div>
-
-        {/* =====================================================
-            CURRENT FOCUS
-            ===================================================== */}
-
-        <Reveal delay={220}>
-          <div className="mt-16 border-t border-[var(--border)] pt-6 sm:mt-20">
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-
-              <p className="font-mono-brand text-[9px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
-                Current focus
-              </p>
-
-              <p className="text-sm leading-relaxed text-[var(--text-muted)] sm:text-right">
-                Linux
-                <span className="mx-2 text-[var(--border-strong)]">·</span>
-                Networking
-                <span className="mx-2 text-[var(--border-strong)]">·</span>
-                Web Security
-                <span className="mx-2 text-[var(--border-strong)]">·</span>
-                Detection Engineering
-              </p>
-
-            </div>
-          </div>
-        </Reveal>
 
       </div>
     </section>
