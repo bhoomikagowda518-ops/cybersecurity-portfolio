@@ -14,13 +14,14 @@
   --text: #f2f3f5;
   --text-muted: #a8afbc;
   --text-faint: #687080;
+
   --accent: #4ea8ff;
   --accent-cyan: #22d3ee;
   --status: #34d399;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
-  /* Section rhythm */
   --section-y: 7rem;
   --section-y-large: 9rem;
 }
@@ -71,7 +72,9 @@ body {
       rgba(255, 255, 255, 0.035) 1px,
       transparent 1px
     );
+
   background-size: 44px 44px;
+
   mask-image:
     radial-gradient(
       ellipse 80% 60% at 50% 0%,
@@ -217,12 +220,6 @@ body {
    SECTION RHYTHM
    ========================================================= */
 
-/*
-  These utilities let us establish a consistent vertical
-  rhythm without forcing every section to use identical
-  spacing.
-*/
-
 .section-space {
   padding-top: var(--section-y);
   padding-bottom: var(--section-y);
@@ -315,7 +312,9 @@ body {
       rgba(255, 255, 255, 0.035) 1px,
       transparent 1px
     );
+
   background-size: 48px 48px;
+
   mask-image:
     linear-gradient(
       to bottom,
@@ -339,6 +338,7 @@ body {
   opacity: 0.035;
   filter: blur(100px);
   pointer-events: none;
+
   animation:
     education-glow
     10s
@@ -375,6 +375,7 @@ body {
   position: absolute;
   inset: 0;
   transform-origin: top;
+
   background:
     linear-gradient(
       to bottom,
@@ -382,6 +383,7 @@ body {
       var(--accent),
       var(--border)
     );
+
   animation:
     timeline-grow
     2s
@@ -406,23 +408,29 @@ body {
 .education-card {
   position: relative;
   overflow: hidden;
+
   padding: 25px;
+
   border: 1px solid var(--border-strong);
   border-radius: 15px;
+
   background:
     linear-gradient(
       135deg,
       rgba(20, 22, 29, 0.96),
       rgba(14, 15, 20, 0.96)
     );
+
   opacity: 0;
   transform: translate3d(0, 28px, 0);
+
   transition:
     opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 300ms ease,
     box-shadow 300ms ease,
-    *background* 300ms ease;
+    background 300ms ease;
+
   transition-delay: var(--education-delay);
 }
 
@@ -433,13 +441,16 @@ body {
 
 .education-card:hover {
   transform: translate3d(0, -5px, 0);
+
   border-color: rgba(52, 216, 238, 0.38);
+
   background:
     linear-gradient(
       135deg,
       rgba(23, 26, 34, 0.98),
       rgba(16, 18, 24, 0.98)
     );
+
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.25),
     0 0 35px rgba(34, 211, 238, 0.055);
@@ -451,15 +462,22 @@ body {
 
 .education-card-glow {
   position: absolute;
+
   width: 200px;
   height: 200px;
+
   top: -100px;
   right: -100px;
+
   border-radius: 9999px;
+
   background: var(--accent-cyan);
   opacity: 0;
+
   filter: blur(65px);
+
   pointer-events: none;
+
   transition:
     opacity 500ms ease,
     transform 700ms ease;
@@ -477,16 +495,22 @@ body {
 .education-logo {
   position: relative;
   z-index: 2;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 76px;
   height: 76px;
   min-width: 76px;
+
   border: 1px solid var(--border-strong);
   border-radius: 14px;
+
   background: #0b0d11;
+
   overflow: hidden;
+
   transition:
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 300ms ease,
@@ -496,10 +520,13 @@ body {
 
 .education-logo img {
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: contain;
   padding: 7px;
+
   transition:
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
     filter 300ms ease;
@@ -507,8 +534,10 @@ body {
 
 .education-card:hover .education-logo {
   transform: translate3d(0, -3px, 0);
+
   border-color: var(--accent-cyan);
   background: #10131a;
+
   box-shadow:
     0 0 22px rgba(34, 211, 238, 0.1),
     0 0 40px rgba(34, 211, 238, 0.035);
@@ -525,13 +554,18 @@ body {
 .education-result {
   display: inline-flex;
   align-items: center;
+
   padding: 8px 12px;
+
   border: 1px solid var(--border-strong);
   border-radius: 7px;
+
   background: #0c0e12;
+
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text);
+
   transition:
     border-color 300ms ease,
     background-color 300ms ease,
@@ -541,8 +575,11 @@ body {
 
 .education-card:hover .education-result {
   border-color: rgba(34, 211, 238, 0.45);
+
   background: rgba(34, 211, 238, 0.05);
+
   transform: translateX(3px);
+
   box-shadow:
     0 0 18px rgba(34, 211, 238, 0.04);
 }
@@ -555,25 +592,30 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+
   padding: 6px 11px;
+
   border: 1px solid var(--border-strong);
   border-radius: 9999px;
+
   background: rgba(52, 211, 153, 0.035);
+
   font-family: var(--font-mono);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+
   color: var(--text-muted);
 }
 
 .education-current-dot {
   width: 6px;
   height: 6px;
+
   border-radius: 9999px;
+
   background: var(--status);
-  box-shadow:
-    0 0 0 0
-    var(--status);
+
   animation:
     current-pulse
     2.5s
@@ -607,15 +649,22 @@ body {
 
 .certification-background-glow {
   position: absolute;
+
   width: 500px;
   height: 500px;
+
   top: 15%;
   left: -260px;
+
   border-radius: 9999px;
+
   background: var(--accent-cyan);
   opacity: 0.03;
+
   filter: blur(110px);
+
   pointer-events: none;
+
   animation:
     certification-glow
     12s
@@ -641,6 +690,7 @@ body {
 .certification-heading {
   opacity: 0;
   transform: translate3d(0, 16px, 0);
+
   animation:
     certification-heading-in
     800ms
@@ -662,24 +712,30 @@ body {
 .certification-card {
   position: relative;
   overflow: hidden;
+
   min-height: 370px;
   padding: 28px;
+
   border: 1px solid var(--border-strong);
   border-radius: 15px;
+
   background:
     linear-gradient(
       135deg,
       rgba(20, 22, 29, 0.96),
       rgba(14, 15, 20, 0.96)
     );
+
   opacity: 0;
   transform: translate3d(0, 26px, 0);
+
   transition:
     opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 300ms ease,
     box-shadow 300ms ease,
-    *background* 300ms ease;
+    background 300ms ease;
+
   transition-delay: var(--certification-delay);
 }
 
@@ -690,13 +746,16 @@ body {
 
 .certification-card:hover {
   transform: translate3d(0, -6px, 0);
+
   border-color: rgba(52, 216, 238, 0.4);
+
   background:
     linear-gradient(
       135deg,
       rgba(23, 26, 34, 0.98),
       rgba(16, 18, 24, 0.98)
     );
+
   box-shadow:
     0 22px 55px rgba(0, 0, 0, 0.26),
     0 0 38px rgba(34, 211, 238, 0.055);
@@ -708,10 +767,13 @@ body {
 
 .certification-card-line {
   position: absolute;
+
   top: 0;
   left: 24px;
   right: 24px;
+
   height: 1px;
+
   background:
     linear-gradient(
       to right,
@@ -719,8 +781,10 @@ body {
       var(--accent-cyan),
       transparent
     );
+
   opacity: 0.3;
   transform: scaleX(0.75);
+
   transition:
     opacity 300ms ease,
     transform 500ms ease;
@@ -737,15 +801,22 @@ body {
 
 .certification-card-glow {
   position: absolute;
+
   width: 220px;
   height: 220px;
+
   top: -120px;
   right: -100px;
+
   border-radius: 9999px;
+
   background: var(--accent-cyan);
   opacity: 0;
+
   filter: blur(70px);
+
   pointer-events: none;
+
   transition:
     opacity 500ms ease,
     transform 700ms ease;
@@ -763,16 +834,22 @@ body {
 .certification-logo {
   position: relative;
   z-index: 2;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 96px;
   height: 96px;
   min-width: 96px;
+
   border: 1px solid var(--border);
   border-radius: 14px;
+
   background: #ffffff;
+
   overflow: hidden;
+
   transition:
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 300ms ease,
@@ -781,19 +858,25 @@ body {
 
 .certification-logo img {
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: contain;
   padding: 10px;
+
   opacity: 1;
   filter: none;
+
   transition:
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .certification-card:hover .certification-logo {
   transform: translate3d(0, -4px, 0);
+
   border-color: rgba(34, 211, 238, 0.55);
+
   box-shadow:
     0 0 25px rgba(34, 211, 238, 0.12),
     0 0 45px rgba(34, 211, 238, 0.04);
@@ -826,11 +909,16 @@ body {
 .certification-year {
   display: inline-flex;
   align-items: center;
+
   padding: 6px 10px;
+
   border: 1px solid var(--border);
   border-radius: 6px;
+
   background: rgba(255, 255, 255, 0.025);
+
   color: var(--text-faint);
+
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.08em;
@@ -870,6 +958,336 @@ body {
 }
 
 /* =========================================================
+   GLOBAL ANIMATED BACKGROUND VISIBILITY
+   ========================================================= */
+
+main,
+section {
+  position: relative;
+  background-color: transparent;
+}
+
+@keyframes photo-shine {
+  0%,
+  65% {
+    transform: translateX(-120%) rotate(12deg);
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  90%,
+  100% {
+    transform: translateX(120%) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+.animate-photo-shine {
+  animation:
+    photo-shine
+    7s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   MOBILE EDUCATION TIMELINE
+   ========================================================= */
+
+.education-mobile-rail {
+  position: absolute;
+
+  left: 13px;
+  top: 20px;
+  bottom: 55px;
+
+  width: 1px;
+
+  background: var(--border);
+
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.education-mobile-rail-glow {
+  position: absolute;
+
+  inset: 0;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(34, 211, 238, 0.7),
+      rgba(34, 211, 238, 0.25) 45%,
+      rgba(34, 211, 238, 0.05) 85%,
+      transparent
+    );
+}
+
+/* Moving signal traveling down the timeline */
+
+.education-mobile-signal {
+  position: absolute;
+
+  left: 50%;
+  top: -30px;
+
+  width: 3px;
+  height: 30px;
+
+  transform: translateX(-50%);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(103, 232, 249, 0.9),
+      transparent
+    );
+
+  filter: blur(0.4px);
+
+  animation:
+    educationSignal
+    5s
+    ease-in-out
+    infinite;
+}
+
+@keyframes educationSignal {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, calc(100vh - 80px));
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   MOBILE TIMELINE ITEMS
+   ========================================================= */
+
+.education-mobile-item {
+  position: relative;
+  padding-left: 38px;
+}
+
+/* Timeline node */
+
+.education-mobile-node {
+  position: absolute;
+
+  left: 13px;
+  top: 22px;
+
+  z-index: 5;
+
+  width: 10px;
+  height: 10px;
+
+  transform: translateX(-50%);
+
+  border: 2px solid var(--bg);
+  border-radius: 999px;
+
+  background: var(--accent-cyan);
+
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.25),
+    0 0 14px rgba(34, 211, 238, 0.35);
+}
+
+.education-mobile-node-inner {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  display: flex;
+
+  width: 25px;
+  height: 25px;
+
+  transform: translate(-50%, -50%);
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  border-radius: 999px;
+
+  background: var(--bg);
+}
+
+.education-mobile-node-inner span {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+}
+
+/* =========================================================
+   MOBILE EDUCATION CARD
+   ========================================================= */
+
+.education-mobile-card {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  padding: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.018),
+      transparent 55%
+    ),
+    var(--panel);
+
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.education-mobile-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(34, 211, 238, 0.45),
+      transparent
+    );
+}
+
+.education-mobile-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -50px;
+  top: -50px;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 999px;
+
+  background: rgba(34, 211, 238, 0.025);
+
+  filter: blur(30px);
+
+  pointer-events: none;
+}
+
+.education-mobile-logo {
+  position: relative;
+
+  flex-shrink: 0;
+
+  width: 52px;
+  height: 52px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+
+  background: var(--bg);
+}
+
+.education-mobile-result {
+  display: inline-flex;
+  align-items: center;
+
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  border-radius: 6px;
+
+  padding: 5px 8px;
+
+  background: rgba(34, 211, 238, 0.035);
+
+  font-family: var(--font-mono);
+  font-size: 9px;
+
+  color: var(--accent-cyan);
+}
+
+/* =========================================================
+   MOBILE TIMELINE END
+   ========================================================= */
+
+.education-mobile-end {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 4px;
+  margin-left: 2px;
+  padding-left: 0;
+}
+
+.education-mobile-end > span:first-child {
+  width: 23px;
+  height: 23px;
+
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  border-radius: 999px;
+
+  background: var(--bg);
+
+  box-shadow:
+    0 0 14px rgba(34, 211, 238, 0.04);
+}
+
+.education-mobile-end > span:first-child::after {
+  content: "";
+
+  display: block;
+
+  width: 5px;
+  height: 5px;
+
+  margin: 8px auto;
+
+  border-radius: 999px;
+
+  background: var(--accent-cyan);
+
+  opacity: 0.45;
+}
+
+/* =========================================================
    MOBILE
    ========================================================= */
 
@@ -904,7 +1322,6 @@ body {
     padding: 6px;
   }
 
-  /* Certification */
   .certification-card {
     min-height: auto;
     padding: 22px;
@@ -973,7 +1390,8 @@ body {
   .animate-spin-slow,
   .animate-contact-line,
   .certification-background-glow,
-  .certification-heading {
+  .certification-heading,
+  .education-mobile-signal {
     animation: none !important;
   }
 
@@ -1007,35 +1425,12 @@ body {
     opacity: 1;
     transform: none;
   }
-}
 
-/* =========================================================
-   GLOBAL ANIMATED BACKGROUND VISIBILITY
-   ========================================================= */
-
-main,
-section {
-  position: relative;
-  background-color: transparent;
-}
-@keyframes photo-shine {
-  0%,
-  65% {
-    transform: translateX(-120%) rotate(12deg);
-    opacity: 0;
+  .education-mobile-signal {
+    display: none;
   }
 
-  75% {
-    opacity: 1;
+  .education-mobile-card {
+    transition: none;
   }
-
-  90%,
-  100% {
-    transform: translateX(120%) rotate(12deg);
-    opacity: 0;
-  }
-}
-
-.animate-photo-shine {
-  animation: photo-shine 7s ease-in-out infinite;
 }
