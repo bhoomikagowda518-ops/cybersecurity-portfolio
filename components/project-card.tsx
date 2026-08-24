@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   Check,
   Database,
+  ExternalLink,
   FileLock2,
   KeyRound,
   LockKeyhole,
@@ -26,7 +27,7 @@ function GithubIcon() {
 
 function SiemVisual() {
   return (
-    <div className="relative h-[270px] overflow-hidden bg-[#071017]">
+    <div className="relative h-[250px] overflow-hidden bg-[#071017]">
       {/* Grid */}
       <div
         className="absolute inset-0 opacity-50"
@@ -41,6 +42,7 @@ function SiemVisual() {
       <div className="absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent-cyan)]/10 blur-[80px]" />
 
       <div className="relative flex h-full flex-col p-5">
+
         {/* Header */}
         <div className="flex items-center justify-between border-b border-white/7 pb-4">
           <div className="flex items-center gap-2">
@@ -55,7 +57,7 @@ function SiemVisual() {
           </div>
 
           <span className="rounded border border-[var(--accent-cyan)]/15 bg-[var(--accent-cyan)]/5 px-2 py-1 font-mono-brand text-[8px] text-[var(--accent-cyan)]">
-            LIVE
+            DEVELOPING
           </span>
         </div>
 
@@ -65,7 +67,7 @@ function SiemVisual() {
             ['EVENTS', '12.8K'],
             ['ALERTS', '07'],
             ['RULES', '24'],
-          ].map(([label, value], i) => (
+          ].map(([label, value], index) => (
             <div
               key={label}
               className="rounded-md border border-white/7 bg-white/[0.025] p-3"
@@ -76,7 +78,7 @@ function SiemVisual() {
 
               <p
                 className={`mt-1 font-mono-brand text-lg ${
-                  i === 1
+                  index === 1
                     ? 'text-[var(--accent-cyan)]'
                     : 'text-white/80'
                 }`}
@@ -115,9 +117,11 @@ function SiemVisual() {
         <div className="mt-3 grid grid-cols-2 gap-2">
           <div className="flex items-center gap-2 rounded border border-white/6 bg-white/[0.02] px-3 py-2">
             <Database size={10} className="text-white/35" />
+
             <span className="font-mono-brand text-[8px] text-white/45">
               SYSLOG
             </span>
+
             <span className="ml-auto font-mono-brand text-[8px] text-[var(--status)]">
               OK
             </span>
@@ -125,9 +129,11 @@ function SiemVisual() {
 
           <div className="flex items-center gap-2 rounded border border-[var(--accent-cyan)]/10 bg-[var(--accent-cyan)]/[0.025] px-3 py-2">
             <Radar size={10} className="text-[var(--accent-cyan)]" />
+
             <span className="font-mono-brand text-[8px] text-white/45">
               BRUTE FORCE
             </span>
+
             <span className="ml-auto font-mono-brand text-[8px] text-[var(--accent-cyan)]">
               ALERT
             </span>
@@ -140,207 +146,185 @@ function SiemVisual() {
 
 function EncryptionVisual() {
   return (
-    <div className="relative h-[270px] overflow-hidden bg-[#071017]">
-      <div
-        className="absolute inset-0 opacity-50"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
+    <div className="relative h-[250px] overflow-hidden bg-[#071017]">
+
+      {/* Project screenshot */}
+      <img
+        src="/encryption-tool.png"
+        alt="Text Encryption Tool project interface"
+        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
       />
 
-      <div className="absolute right-8 top-8 h-44 w-44 rounded-full bg-[var(--accent-cyan)]/8 blur-[80px]" />
+      {/* Dark cinematic overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#071017] via-[#071017]/10 to-transparent" />
 
-      <div className="relative flex h-full flex-col p-5">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/7 pb-4">
-          <div className="flex items-center gap-2">
-            <LockKeyhole
-              size={13}
-              className="text-[var(--accent-cyan)]"
-            />
+      {/* Subtle atmosphere */}
+      <div className="pointer-events-none absolute inset-0 bg-[var(--accent-cyan)]/[0.025] mix-blend-screen" />
 
-            <span className="font-mono-brand text-[9px] tracking-[0.2em] text-white/65">
-              CRYPTOGRAPHY TOOL
-            </span>
-          </div>
-
-          <span className="font-mono-brand text-[8px] text-[var(--status)]">
-            PROTECTED
-          </span>
-        </div>
-
-        {/* Encryption flow */}
-        <div className="flex flex-1 items-center justify-center gap-3">
-          <div className="flex h-24 w-28 flex-col items-center justify-center rounded-lg border border-white/8 bg-white/[0.025]">
-            <FileLock2
-              size={22}
-              strokeWidth={1.5}
-              className="text-white/55"
-            />
-
-            <span className="mt-3 font-mono-brand text-[8px] tracking-wider text-white/35">
-              PLAINTEXT
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center gap-1">
-            <ArrowRight
-              size={17}
-              className="text-[var(--accent-cyan)]"
-            />
-
-            <span className="font-mono-brand text-[7px] text-white/25">
-              AES-GCM
-            </span>
-          </div>
-
-          <div className="flex h-24 w-28 flex-col items-center justify-center rounded-lg border border-[var(--accent-cyan)]/20 bg-[var(--accent-cyan)]/[0.035]">
-            <LockKeyhole
-              size={22}
-              strokeWidth={1.5}
-              className="text-[var(--accent-cyan)]"
-            />
-
-            <span className="mt-3 font-mono-brand text-[8px] tracking-wider text-[var(--accent-cyan)]">
-              CIPHERTEXT
-            </span>
-          </div>
-        </div>
-
-        {/* Algorithm cards */}
-        <div className="grid grid-cols-4 gap-2">
-          {[
-            { icon: KeyRound, label: 'AES-GCM' },
-            { icon: ShieldCheck, label: 'FERNET' },
-            { icon: LockKeyhole, label: 'SHA-256' },
-            { icon: Check, label: 'BCRYPT' },
-          ].map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={item.label}
-                className="flex flex-col items-center gap-1.5 rounded border border-white/7 bg-white/[0.02] py-2"
-              >
-                <Icon
-                  size={11}
-                  strokeWidth={1.7}
-                  className="text-[var(--accent-cyan)]"
-                />
-
-                <span className="font-mono-brand text-[7px] text-white/40">
-                  {item.label}
-                </span>
-              </div>
-            );
-          })}
-        </div>
+      {/* Label */}
+      <div className="absolute left-5 top-5 rounded border border-white/10 bg-black/45 px-2.5 py-1.5 backdrop-blur-md">
+        <span className="font-mono-brand text-[8px] tracking-[0.18em] text-white/65">
+          CRYPTOGRAPHY TOOL
+        </span>
       </div>
     </div>
   );
 }
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+}: {
+  project: Project;
+}) {
   const isSiem = project.id === 'siem';
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--panel)] shadow-lg shadow-black/5 transition-all duration-500 hover:-translate-y-1.5 hover:border-[var(--border-strong)] hover:shadow-2xl hover:shadow-black/20">
+    <article
+      className="
+        group flex h-full flex-col overflow-hidden rounded-2xl
+        border border-[var(--border)]
+        bg-[var(--panel)]
+        shadow-lg shadow-black/5
+        transition-all duration-500
+        hover:-translate-y-1.5
+        hover:border-[var(--border-strong)]
+        hover:shadow-2xl hover:shadow-black/20
+      "
+    >
 
-      {/* Visual */}
+      {/* =====================================================
+          PROJECT VISUAL
+          ===================================================== */}
+
       <div className="relative overflow-hidden">
         {isSiem ? <SiemVisual /> : <EncryptionVisual />}
 
-        {/* Fade into card */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[var(--panel)] to-transparent" />
-
-        {/* Number */}
-        <div className="absolute right-4 top-4 rounded-full border border-white/10 bg-black/20 px-2.5 py-1 backdrop-blur-md">
-          <span className="font-mono-brand text-[9px] text-white/45">
-            {isSiem ? '01' : '02'}
-          </span>
-        </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--panel)] to-transparent" />
       </div>
 
-      {/* Content */}
+      {/* =====================================================
+          PROJECT CONTENT
+          ===================================================== */}
+
       <div className="flex flex-1 flex-col p-6 sm:p-7">
 
         {/* Status */}
-        <div className="flex items-center justify-between">
-          <span
-            className={`font-mono-brand text-[9px] uppercase tracking-[0.18em] ${
-              project.status === 'Completed'
-                ? 'text-[var(--status)]'
-                : 'text-[var(--accent-cyan)]'
-            }`}
-          >
-            {project.status}
-          </span>
 
-          <span className="font-mono-brand text-[9px] text-[var(--text-faint)]">
-            {isSiem ? 'SEC-001' : 'CRYPTO-001'}
-          </span>
-        </div>
+        <span
+          className={`font-mono-brand text-[9px] uppercase tracking-[0.18em] ${
+            project.status === 'Completed'
+              ? 'text-[var(--status)]'
+              : 'text-[var(--accent-cyan)]'
+          }`}
+        >
+          {project.status}
+        </span>
 
         {/* Title */}
-        <h3 className="mt-4 text-[1.65rem] font-semibold tracking-[-0.035em] text-[var(--text)] transition-colors duration-300 group-hover:text-[var(--accent-cyan)]">
+
+        <h3 className="mt-3 text-[1.6rem] font-semibold tracking-[-0.035em] text-[var(--text)] transition-colors duration-300 group-hover:text-[var(--accent-cyan)]">
           {project.name}
         </h3>
 
-        <p className="mt-1 text-sm text-[var(--text-muted)]">
-          {project.tagline}
-        </p>
+        {/* Short description */}
 
-        {/* Description */}
-        <p className="mt-5 text-sm leading-7 text-[var(--text-muted)]">
+        <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--text-muted)]">
           {project.description}
         </p>
 
-        {/* Points */}
-        <ul className="mt-6 space-y-3">
-          {project.points.slice(0, 3).map((point) => (
-            <li
-              key={point}
-              className="flex items-start gap-2.5 text-xs leading-relaxed text-[var(--text-muted)]"
-            >
-              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[var(--accent-cyan)]" />
-              {point}
-            </li>
-          ))}
-        </ul>
-
         {/* Technologies */}
-        <div className="mt-6 flex flex-wrap gap-1.5">
-          {project.stack.map((tech) => (
+
+        <div className="mt-5 flex flex-wrap gap-1.5">
+          {project.stack.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="rounded-md border border-[var(--border-strong)] bg-[var(--bg-soft)] px-2.5 py-1.5 font-mono-brand text-[9px] text-[var(--text-muted)] transition-all duration-300 group-hover:border-[var(--border-strong)] group-hover:text-[var(--text)]"
+              className="
+                rounded-md
+                border border-[var(--border-strong)]
+                bg-[var(--bg-soft)]
+                px-2.5 py-1.5
+                font-mono-brand text-[9px]
+                text-[var(--text-muted)]
+                transition-colors duration-300
+                group-hover:text-[var(--text)]
+              "
             >
               {tech}
             </span>
           ))}
         </div>
 
-        {/* Action */}
-        <div className="mt-auto pt-7">
-          <div className="border-t border-[var(--border)] pt-5">
+        {/* Actions */}
+
+        <div className="mt-6 flex flex-wrap gap-3 border-t border-[var(--border)] pt-5">
+
+          {/* GitHub */}
+
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              group/github
+              inline-flex items-center gap-3
+              rounded-lg
+              border border-[var(--border-strong)]
+              bg-[var(--bg-soft)]
+              px-4 py-2.5
+              text-xs font-medium
+              text-[var(--text)]
+              transition-all duration-300
+              hover:border-[var(--accent-cyan)]/40
+              hover:bg-[var(--accent-cyan)]/5
+              hover:text-[var(--accent-cyan)]
+            "
+          >
+            <GithubIcon />
+
+            <span>View on GitHub</span>
+
+            <ArrowUpRight
+              size={14}
+              className="
+                transition-transform duration-300
+                group-hover/github:translate-x-0.5
+                group-hover/github:-translate-y-0.5
+              "
+            />
+          </a>
+
+          {/* Live Demo — Encryption Tool only */}
+
+          {!isSiem && (
             <a
-              href={project.github}
+              href="https://text-encryption-tool-rypytn7rwz5wga9vrnwpuh.streamlit.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group/github inline-flex items-center gap-3 rounded-lg border border-[var(--border-strong)] bg-[var(--bg-soft)] px-4 py-2.5 text-xs font-medium text-[var(--text)] transition-all duration-300 hover:border-[var(--accent-cyan)]/40 hover:bg-[var(--accent-cyan)]/5 hover:text-[var(--accent-cyan)]"
+              className="
+                inline-flex items-center gap-3
+                rounded-lg
+                border border-[var(--accent-cyan)]/30
+                bg-[var(--accent-cyan)]/5
+                px-4 py-2.5
+                text-xs font-medium
+                text-[var(--accent-cyan)]
+                transition-all duration-300
+                hover:border-[var(--accent-cyan)]/50
+                hover:bg-[var(--accent-cyan)]/10
+                hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)]
+              "
             >
-              <GithubIcon />
+              <ExternalLink size={15} strokeWidth={1.7} />
 
-              <span>View on GitHub</span>
+              <span>Live Demo</span>
 
               <ArrowUpRight
                 size={14}
-                className="transition-transform duration-300 group-hover/github:translate-x-0.5 group-hover/github:-translate-y-0.5"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
             </a>
-          </div>
+          )}
+
         </div>
       </div>
     </article>

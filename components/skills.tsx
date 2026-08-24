@@ -72,48 +72,39 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden border-t border-[var(--border)] bg-transparent"
+      className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--bg)]"
     >
-      {/* =====================================================
-          SECTION ATMOSPHERE
-          ===================================================== */}
-
+      {/* Background decoration */}
       <div className="pointer-events-none absolute inset-0">
-        {/* Soft cyan atmosphere */}
-        <div className="absolute left-[5%] top-[20%] h-72 w-72 rounded-full bg-[var(--accent-cyan)]/[0.018] blur-[130px]" />
+        <div className="absolute left-[8%] top-[18%] h-72 w-72 rounded-full bg-[var(--accent-cyan)]/[0.035] blur-[120px]" />
 
-        {/* Very subtle blue atmosphere */}
-        <div className="absolute bottom-[10%] right-[5%] h-80 w-80 rounded-full bg-[var(--accent)]/[0.015] blur-[140px]" />
+        <div className="absolute bottom-[8%] right-[5%] h-80 w-80 rounded-full bg-[var(--accent)]/[0.025] blur-[130px]" />
+
+        <div className="absolute inset-0 opacity-[0.018] [background-image:linear-gradient(var(--text)_1px,transparent_1px),linear-gradient(90deg,var(--text)_1px,transparent_1px)] [background-size:72px_72px]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
 
-        {/* =====================================================
-            SECTION HEADING
-            ===================================================== */}
-
+        {/* Section label */}
         <Reveal>
-          <div className="flex items-center gap-3">
-            <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
-              04 — Skills
-            </span>
+  <div className="flex items-center gap-3">
+    <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
+      04 — Skills
+    </span>
 
-            <span className="h-px w-10 bg-[var(--border-strong)]" />
-          </div>
+    <span className="h-px w-10 bg-[var(--border-strong)]" />
+  </div>
 
-          <div className="mt-6">
-            <SectionHeading
-              eyebrow=""
-              title="What I work with"
-              description="A growing technical toolkit built through cybersecurity projects, labs, and continuous hands-on learning."
-            />
-          </div>
-        </Reveal>
+  <div className="mt-6">
+    <SectionHeading
+      eyebrow=""
+      title="What I work with"
+      description="A growing technical toolkit built through cybersecurity projects, labs, and continuous hands-on learning."
+    />
+  </div>
+</Reveal>
 
-        {/* =====================================================
-            SKILL CARDS
-            ===================================================== */}
-
+        {/* Skill cards */}
         <div className="mt-16 grid gap-5 md:grid-cols-2">
           {SKILLS.map((group, i) => {
             const config =
@@ -135,7 +126,8 @@ export default function Skills() {
                     hover:shadow-[0_20px_60px_rgba(0,0,0,0.18)]
                   "
                 >
-                  {/* Top accent */}
+
+                  {/* Animated top accent */}
                   <div className="absolute left-0 right-0 top-0 h-px overflow-hidden">
                     <div
                       className={`h-full w-0 transition-all duration-700 group-hover:w-full ${
@@ -150,20 +142,7 @@ export default function Skills() {
                     />
                   </div>
 
-                  {/* Very subtle hover glow */}
-                  <div
-                    className={`pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full blur-[70px] opacity-0 transition-opacity duration-500 group-hover:opacity-[0.06] ${
-                      config.iconColor === 'text-sky-400'
-                        ? 'bg-sky-400'
-                        : config.iconColor === 'text-emerald-400'
-                          ? 'bg-emerald-400'
-                          : config.iconColor === 'text-violet-400'
-                            ? 'bg-violet-400'
-                            : 'bg-amber-400'
-                    }`}
-                  />
-
-                  <div className="relative p-7 sm:p-8">
+                  <div className="p-7 sm:p-8">
 
                     {/* Header */}
                     <div className="flex items-start justify-between">
@@ -239,6 +218,7 @@ export default function Skills() {
                             hover:bg-[var(--accent-cyan)]/[0.045]
                           "
                         >
+                          {/* Colored symbol */}
                           <span
                             className={`
                               text-[12px]
@@ -292,10 +272,7 @@ export default function Skills() {
           })}
         </div>
 
-        {/* =====================================================
-            CURRENT FOCUS
-            ===================================================== */}
-
+        {/* Current focus */}
         <Reveal delay={400}>
           <div className="mt-6 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--panel)]">
 

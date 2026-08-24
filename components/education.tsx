@@ -2,45 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { GraduationCap, School, BookOpen } from 'lucide-react';
 
-const EDUCATION = [
-  {
-    icon: GraduationCap,
-    logo: '/ssit-logo.png',
-    type: 'UNDERGRADUATE',
-    institution: 'Sri Siddhartha Institute of Technology',
-    program: 'B.E. Computer Science & Engineering (Cybersecurity)',
-    details: '2025 — 2029 · Tumkur, Karnataka',
-    result: '1st Year CGPA: 9.69 / 10.00',
-  },
-  {
-    icon: BookOpen,
-    logo: '/sspucw-logo.png',
-    type: 'PRE-UNIVERSITY',
-    institution: 'Sree Siddaganga PU College for Women',
-    program: '2nd PUC',
-    details: 'Tumkur, Karnataka',
-    result: '94.33%',
-  },
-  {
-    icon: School,
-    logo: '/kvs-logo.png',
-    type: 'SECONDARY EDUCATION',
-    institution: 'Kendriya Vidyalaya, Tumkur',
-    program: 'Class X · CBSE',
-    details: 'Tumkur, Karnataka',
-    result: 'CGPA: 9.00 / 10.00',
-  },
-];
-
-function EducationCard({
-  education,
-  index,
-}: {
-  education: (typeof EDUCATION)[number];
-  index: number;
-}) {
+export default function Education() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -57,8 +20,7 @@ function EducationCard({
         }
       },
       {
-        threshold: 0.12,
-        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.1,
       }
     );
 
@@ -67,153 +29,126 @@ function EducationCard({
     return () => observer.disconnect();
   }, []);
 
-  const Icon = education.icon;
-
-  return (
-    <article
-      ref={ref}
-      className={`education-card ${
-        visible ? 'education-card-visible' : ''
-      }`}
-      style={
-        {
-          '--education-delay': `${index * 140}ms`,
-        } as React.CSSProperties
-      }
-    >
-      {/* Hover glow */}
-      <div className="education-card-glow" />
-
-      <div className="relative flex flex-col gap-6 sm:flex-row sm:items-start">
-
-        {/* Institution Logo */}
-        <div className="education-logo">
-          <Image
-            src={education.logo}
-            alt={`${education.institution} logo`}
-            fill
-            sizes="88px"
-            className="object-contain p-2"
-            priority={index === 0}
-          />
-        </div>
-
-        {/* Main content */}
-        <div className="min-w-0 flex-1">
-
-          {/* Category */}
-          <div className="flex items-center gap-2">
-
-            <Icon
-              size={14}
-              strokeWidth={1.6}
-              className="text-[var(--accent-cyan)]"
-            />
-
-            <span className="font-mono-brand text-[10px] uppercase tracking-[0.2em] text-[var(--accent-cyan)]">
-              {education.type}
-            </span>
-
-          </div>
-
-          {/* Institution */}
-          <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--text)] sm:text-2xl">
-            {education.institution}
-          </h3>
-
-          {/* Degree / qualification */}
-          <p className="mt-2 text-sm font-medium leading-relaxed text-[var(--text-muted)] sm:text-base">
-            {education.program}
-          </p>
-
-          {/* Location + year */}
-          <p className="mt-2 font-mono-brand text-xs text-[var(--text-faint)]">
-            {education.details}
-          </p>
-
-          {/* Result */}
-          <div className="mt-5">
-            <span className="education-result">
-              {education.result}
-            </span>
-          </div>
-
-        </div>
-
-        {/* Current */}
-        {index === 0 && (
-          <div className="shrink-0 sm:pt-1">
-            <span className="education-current">
-              <span className="education-current-dot" />
-              Current
-            </span>
-          </div>
-        )}
-
-      </div>
-    </article>
-  );
-}
-
-export default function Education() {
   return (
     <section
       id="education"
       className="relative overflow-hidden border-t border-[var(--border)]"
     >
+      {/* Subtle background glow */}
+      <div className="pointer-events-none absolute left-[10%] top-[25%] h-72 w-72 rounded-full bg-[var(--accent-cyan)]/[0.02] blur-[130px]" />
 
-      {/* Background glow */}
-      <div className="education-background-glow" />
-
-      <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
-
+      <div
+        ref={ref}
+        className={`relative mx-auto max-w-6xl px-6 py-24 transition-all duration-700 sm:py-32 ${
+          visible
+            ? 'translate-y-0 opacity-100'
+            : 'translate-y-6 opacity-0'
+        }`}
+      >
         {/* Heading */}
-        <div className="education-heading mb-14">
-
+        <div>
           <div className="flex items-center gap-3">
-
             <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
               05 — Education
             </span>
 
             <span className="h-px w-10 bg-[var(--border-strong)]" />
-
           </div>
 
-          <h2 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
+          <h2 className="mt-6 text-4xl font-semibold tracking-[-0.04em] text-[var(--text)] sm:text-5xl">
             Academic background
           </h2>
-
-          <p className="mt-5 max-w-2xl leading-relaxed text-[var(--text-muted)]">
-            The academic foundation behind my journey into computer science
-            and cybersecurity.
-          </p>
-
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
+        {/* Education */}
+        <div className="mt-12 max-w-5xl">
+          <div className="grid overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--panel)] lg:grid-cols-[1.05fr_0.95fr]">
 
-          {/* Animated timeline */}
-          <div className="education-timeline">
-            <div className="education-timeline-progress" />
-          </div>
-
-          {/* Cards */}
-          <div className="space-y-5">
-
-            {EDUCATION.map((education, index) => (
-              <EducationCard
-                key={education.institution}
-                education={education}
-                index={index}
+            {/* College Image */}
+            <div className="group relative min-h-[300px] overflow-hidden lg:min-h-[430px]">
+              <Image
+                src="/ssit-campus.jpg"
+                alt="Sri Siddhartha Institute of Technology, Tumkur"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.025]"
               />
-            ))}
+
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+
+              <div className="absolute bottom-0 left-0 p-6 sm:p-8">
+                <h3 className="max-w-lg text-2xl font-semibold tracking-[-0.03em] text-white sm:text-3xl">
+                  Sri Siddhartha Institute of Technology
+                </h3>
+
+                <p className="mt-1 text-sm text-white/60">
+                  Tumkur, Karnataka
+                </p>
+              </div>
+            </div>
+
+            {/* Details */}
+            <div className="flex flex-col justify-center p-7 sm:p-9 lg:p-10">
+
+              <p className="font-mono-brand text-[9px] uppercase tracking-[0.2em] text-[var(--accent-cyan)]">
+                My Details
+              </p>
+
+              <div className="mt-8 space-y-6">
+
+                {/* Degree */}
+                <div>
+                  <p className="text-xs text-[var(--text-faint)]">
+                    Degree
+                  </p>
+
+                  <p className="mt-1.5 text-sm font-medium leading-6 text-[var(--text)]">
+                    B.E. Computer Science & Engineering
+                  </p>
+                </div>
+
+                {/* Specialization */}
+                <div>
+                  <p className="text-xs text-[var(--text-faint)]">
+                    Specialization
+                  </p>
+
+                  <p className="mt-1.5 text-sm font-medium text-[var(--text)]">
+                    Cybersecurity
+                  </p>
+                </div>
+
+                {/* CGPA */}
+                <div>
+                  <p className="text-xs text-[var(--text-faint)]">
+                    1st Year CGPA
+                  </p>
+
+                  <p className="mt-1.5 text-2xl font-semibold tracking-tight text-[var(--accent-cyan)]">
+                    9.69
+                    <span className="ml-1 text-sm font-normal text-[var(--text-faint)]">
+                      / 10.00
+                    </span>
+                  </p>
+                </div>
+
+                {/* Duration */}
+                <div className="border-t border-[var(--border)] pt-6">
+                  <p className="text-xs text-[var(--text-faint)]">
+                    Duration
+                  </p>
+
+                  <p className="mt-1.5 font-mono-brand text-sm text-[var(--text)]">
+                    2025 — 2029
+                  </p>
+                </div>
+
+              </div>
+            </div>
 
           </div>
-
         </div>
-
       </div>
     </section>
   );

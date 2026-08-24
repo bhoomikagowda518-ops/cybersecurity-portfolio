@@ -1,56 +1,32 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Reveal from '@/components/reveal';
+import SectionHeading from '@/components/section-heading';
 
-const TYPING_TEXT = "Hi, I'm Bhoomika.";
+const PROGRESSION = [
+  {
+    number: '01',
+    title: 'Understand',
+    description: 'Learn how the system works.',
+  },
+  {
+    number: '02',
+    title: 'Build',
+    description: 'Turn knowledge into something real.',
+  },
+  {
+    number: '03',
+    title: 'Break',
+    description: 'Test it. Question it. Find the weakness.',
+  },
+  {
+    number: '04',
+    title: 'Fix',
+    description: 'Understand why it failed and make it stronger.',
+  },
+];
 
 export default function About() {
-  const [typedText, setTypedText] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
-
-  useEffect(() => {
-    let index = 0;
-    let deleting = false;
-    let timeout: number;
-
-    const type = () => {
-      if (!deleting) {
-        if (index < TYPING_TEXT.length) {
-          index++;
-          setTypedText(TYPING_TEXT.slice(0, index));
-          timeout = window.setTimeout(type, 85);
-        } else {
-          timeout = window.setTimeout(() => {
-            deleting = true;
-            type();
-          }, 1800);
-        }
-      } else {
-        if (index > 0) {
-          index--;
-          setTypedText(TYPING_TEXT.slice(0, index));
-          timeout = window.setTimeout(type, 45);
-        } else {
-          deleting = false;
-          timeout = window.setTimeout(type, 500);
-        }
-      }
-    };
-
-    timeout = window.setTimeout(type, 400);
-
-    return () => window.clearTimeout(timeout);
-  }, []);
-
-  useEffect(() => {
-    const cursorInterval = window.setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 530);
-
-    return () => window.clearInterval(cursorInterval);
-  }, []);
-
   return (
     <section
       id="about"
@@ -60,143 +36,194 @@ export default function About() {
           AMBIENT BACKGROUND
           ===================================================== */}
 
-      <div className="pointer-events-none absolute left-[5%] top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-[var(--accent-cyan)]/[0.025] blur-[130px]" />
+      <div className="pointer-events-none absolute left-[-180px] top-[30%] h-[380px] w-[380px] rounded-full bg-[var(--accent-cyan)]/[0.025] blur-[130px]" />
 
-      <div className="pointer-events-none absolute right-[-120px] top-[20%] h-72 w-72 rounded-full bg-[var(--accent)]/[0.018] blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-[5%] right-[-180px] h-[360px] w-[360px] rounded-full bg-[var(--accent)]/[0.018] blur-[130px]" />
 
-      <div className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">
+      <div className="relative mx-auto w-full max-w-6xl px-5 py-24 sm:px-6 sm:py-28 lg:py-32">
+
+        {/* =====================================================
+            HEADER
+            ===================================================== */}
 
         <Reveal>
-          <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+          <div className="flex items-center gap-3">
+            <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
+              01 — About
+            </span>
 
-            {/* =================================================
-                LEFT — INTRODUCTION
-                ================================================= */}
+            <span className="h-px w-10 bg-[var(--border-strong)]" />
+          </div>
+        </Reveal>
 
-            <div className="relative">
+        <Reveal delay={80}>
+          <div className="mt-6">
+            <SectionHeading
+              eyebrow=""
+              title="Understanding what happens beneath the surface"
+              description="I’m a Computer Science Engineering student focused on cybersecurity, learning by building systems, experimenting, and understanding how things work."
+            />
+          </div>
+        </Reveal>
 
-              {/* Section label */}
-              <div className="flex items-center gap-3">
-                <span className="font-mono-brand text-[10px] uppercase tracking-[0.22em] text-[var(--accent-cyan)]">
-                  01 — About
-                </span>
+        {/* =====================================================
+            MAIN CONTENT
+            ===================================================== */}
 
-                <span className="h-px w-10 bg-[var(--border-strong)]" />
-              </div>
+        <div className="mt-14 grid gap-14 sm:mt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
 
-              {/* Typing heading */}
-              <h2
-                className="mt-6 min-h-[1.2em] whitespace-nowrap text-4xl font-semibold tracking-[-0.035em] text-[var(--text)] sm:text-5xl"
-                aria-label={TYPING_TEXT}
-              >
-                {typedText}
-                <span
-                  className={`ml-1 inline-block h-[0.9em] w-[2px] translate-y-[2px] bg-[var(--accent-cyan)] transition-opacity duration-100 ${
-                    showCursor ? 'opacity-100' : 'opacity-0'
-                  }`}
-                />
-              </h2>
+          {/* ===================================================
+              STORY
+              =================================================== */}
 
-              {/* Supporting statement */}
-              <p className="mt-6 max-w-sm text-lg leading-relaxed text-[var(--text-muted)]">
-  Building my way into cybersecurity, one system at a time.
-</p>
+          <Reveal delay={120}>
+            <div className="relative max-w-xl">
 
-              {/* Status */}
-              <div className="mt-9 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--panel)] px-3 py-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute h-full w-full animate-ping rounded-full bg-[var(--status)] opacity-40" />
-                  <span className="relative h-2 w-2 rounded-full bg-[var(--status)]" />
-                </span>
+              {/* Signal line */}
 
-                <span className="font-mono-brand text-[9px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
-                  Currently learning & building
-                </span>
-              </div>
+              <div className="absolute -left-4 top-1 h-[calc(100%-4px)] w-px bg-gradient-to-b from-[var(--accent-cyan)]/40 via-[var(--border)] to-transparent sm:-left-6" />
 
-            </div>
-
-            {/* =================================================
-                RIGHT — STORY
-                ================================================= */}
-
-            <div className="relative max-w-2xl">
-
-              {/* Vertical signal line */}
-              <div className="absolute -left-5 top-1 h-full w-px bg-gradient-to-b from-[var(--accent-cyan)]/40 via-[var(--border)] to-transparent lg:-left-8" />
-
-              {/* Main introduction */}
-              <p className="text-lg leading-relaxed text-[var(--text)] sm:text-xl">
+              <p className="text-base leading-[1.8] text-[var(--text)] sm:text-lg">
                 I&apos;m a Computer Science Engineering student specializing
                 in{' '}
                 <span className="text-[var(--accent-cyan)]">
                   Cybersecurity
                 </span>
-                . I&apos;m curious about what happens beneath the surface of
-                the systems we use every day, how networks communicate,
-                how vulnerabilities emerge, and how they can be secured.
+                , interested in how systems work, where vulnerabilities come
+                from, and how they can be secured.
               </p>
 
-              {/* Current focus */}
-              <p className="mt-7 leading-relaxed text-[var(--text-muted)]">
-                Rather than learning security only from theory, I&apos;m
-                focused on building and experimenting. Right now, I&apos;m
-                developing an enterprise-style SIEM platform while
-                strengthening my foundations in Linux, networking, web
-                security, detection engineering, and offensive security.
+              <p className="mt-6 text-sm leading-[1.85] text-[var(--text-muted)] sm:text-base">
+                I prefer learning by building rather than just studying
+                concepts. Right now, I&apos;m developing an enterprise-style
+                SIEM platform while strengthening my foundations in Linux,
+                networking, web security, and security engineering.
               </p>
 
-              {/* Philosophy */}
-              <p className="mt-7 leading-relaxed text-[var(--text-muted)]">
-                I&apos;m still early in the journey, but I&apos;m taking it
-                seriously, learning the fundamentals, building real
-                projects, breaking things in controlled environments, and
-                documenting what I learn along the way.
-              </p>
+              {/* Metadata */}
 
-              {/* =================================================
-                  STATS
-                  ================================================= */}
+              <div className="mt-9 grid grid-cols-2 gap-y-6 border-t border-[var(--border)] pt-6 sm:grid-cols-3 sm:gap-y-0">
 
-              <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3">
-
-                {/* CGPA */}
-                <div className="group rounded-xl border border-[var(--border)] bg-[var(--panel)] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:bg-[var(--panel-hover)]">
-                  <p className="font-mono-brand text-2xl font-semibold text-[var(--text)] transition-colors duration-300 group-hover:text-[var(--accent-cyan)]">
-                    9.69
+                <div>
+                  <p className="font-mono-brand text-[9px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
+                    Focus
                   </p>
 
-                  <p className="mt-1 text-xs text-[var(--text-faint)]">
-                    Current CGPA
-                  </p>
-                </div>
-
-                {/* Graduation */}
-                <div className="group rounded-xl border border-[var(--border)] bg-[var(--panel)] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:bg-[var(--panel-hover)]">
-                  <p className="font-mono-brand text-2xl font-semibold text-[var(--text)] transition-colors duration-300 group-hover:text-[var(--accent-cyan)]">
-                    2029
-                  </p>
-
-                  <p className="mt-1 text-xs text-[var(--text-faint)]">
-                    Graduation
-                  </p>
-                </div>
-
-                {/* Specialization */}
-                <div className="col-span-2 group rounded-xl border border-[var(--border)] bg-[var(--panel)] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:bg-[var(--panel-hover)] sm:col-span-1">
-                  <p className="font-mono-brand text-2xl font-semibold text-[var(--text)] transition-colors duration-300 group-hover:text-[var(--accent-cyan)]">
-                    CSE
-                  </p>
-
-                  <p className="mt-1 text-xs text-[var(--text-faint)]">
+                  <p className="mt-1.5 text-sm text-[var(--text)]">
                     Cybersecurity
                   </p>
                 </div>
 
+                <div className="sm:border-l sm:border-[var(--border)] sm:pl-6">
+                  <p className="font-mono-brand text-[9px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
+                    Building
+                  </p>
+
+                  <p className="mt-1.5 text-sm text-[var(--text)]">
+                    Enterprise SIEM
+                  </p>
+                </div>
+
+                <div className="col-span-2 sm:col-span-1 sm:border-l sm:border-[var(--border)] sm:pl-6">
+                  <p className="font-mono-brand text-[9px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
+                    Graduation
+                  </p>
+
+                  <p className="mt-1.5 text-sm text-[var(--text)]">
+                    2029
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </Reveal>
+
+          {/* ===================================================
+              HOW I LEARN
+              =================================================== */}
+
+          <Reveal delay={160}>
+            <div className="relative">
+
+              <div className="mb-6 flex items-center justify-between">
+                <span className="font-mono-brand text-[10px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
+                  How I learn
+                </span>
+
+                <span className="font-mono-brand text-[9px] text-[var(--text-faint)]">
+                  / process
+                </span>
               </div>
 
-            </div>
+              <div className="relative">
 
+                {/* Connecting line */}
+
+                <div className="absolute bottom-4 left-[14px] top-4 w-px bg-gradient-to-b from-[var(--accent-cyan)]/40 via-[var(--border-strong)] to-transparent" />
+
+                <div className="space-y-6">
+
+                  {PROGRESSION.map((step) => (
+                    <div
+                      key={step.number}
+                      className="group relative flex gap-4 sm:gap-5"
+                    >
+
+                      {/* Number */}
+
+                      <div className="relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--bg)] transition-all duration-300 group-hover:border-[var(--accent-cyan)]">
+                        <span className="font-mono-brand text-[8px] text-[var(--text-faint)] transition-colors group-hover:text-[var(--accent-cyan)]">
+                          {step.number}
+                        </span>
+                      </div>
+
+                      {/* Content */}
+
+                      <div className="min-w-0 pt-0.5">
+
+                        <h3 className="text-lg font-medium tracking-[-0.02em] text-[var(--text)] transition-colors duration-300 group-hover:text-[var(--accent-cyan)] sm:text-xl">
+                          {step.title}
+                        </h3>
+
+                        <p className="mt-1 text-sm leading-relaxed text-[var(--text-muted)]">
+                          {step.description}
+                        </p>
+
+                      </div>
+                    </div>
+                  ))}
+
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+        </div>
+
+        {/* =====================================================
+            CURRENT FOCUS
+            ===================================================== */}
+
+        <Reveal delay={220}>
+          <div className="mt-16 border-t border-[var(--border)] pt-6 sm:mt-20">
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+
+              <p className="font-mono-brand text-[9px] uppercase tracking-[0.18em] text-[var(--text-faint)]">
+                Current focus
+              </p>
+
+              <p className="text-sm leading-relaxed text-[var(--text-muted)] sm:text-right">
+                Linux
+                <span className="mx-2 text-[var(--border-strong)]">·</span>
+                Networking
+                <span className="mx-2 text-[var(--border-strong)]">·</span>
+                Web Security
+                <span className="mx-2 text-[var(--border-strong)]">·</span>
+                Detection Engineering
+              </p>
+
+            </div>
           </div>
         </Reveal>
 
